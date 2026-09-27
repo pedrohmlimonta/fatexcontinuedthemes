@@ -19,7 +19,7 @@ Foundry VTT v14 e para o sistema `fatexcontinued`.
 No Foundry (tela de configuração) → **Add-on Modules → Install Module** → campo **Manifest URL**:
 
 ```
-https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/module.json
+https://github.com/pedrohmlimonta/fatexcontinuedthemes/releases/latest/download/module.json
 ```
 
 Depois, dentro do mundo: **Configurações → Gerenciar Módulos** → ative o **FateX Continued Themes**.

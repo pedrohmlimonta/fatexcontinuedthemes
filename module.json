@@ -45,10 +45,10 @@
     }
   ],
   "license": "LICENSE",
-  "url": "https://github.com/pedrohmlimonta/fatexcontinued-themes",
-  "bugs": "https://github.com/pedrohmlimonta/fatexcontinued-themes/issues",
-  "readme": "https://github.com/pedrohmlimonta/fatexcontinued-themes/blob/main/README.md",
-  "changelog": "https://github.com/pedrohmlimonta/fatexcontinued-themes/blob/main/CHANGELOG.md",
-  "manifest": "https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/module.json",
-  "download": "https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/fatexcontinued-themes.zip"
+  "url": "https://github.com/pedrohmlimonta/fatexcontinuedthemes",
+  "bugs": "https://github.com/pedrohmlimonta/fatexcontinuedthemes/issues",
+  "readme": "https://github.com/pedrohmlimonta/fatexcontinuedthemes/blob/main/README.md",
+  "changelog": "https://github.com/pedrohmlimonta/fatexcontinuedthemes/blob/main/CHANGELOG.md",
+  "manifest": "https://github.com/pedrohmlimonta/fatexcontinuedthemes/releases/latest/download/module.json",
+  "download": "https://github.com/pedrohmlimonta/fatexcontinuedthemes/releases/latest/download/fatexcontinued-themes.zip"
 }

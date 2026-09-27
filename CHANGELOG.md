@@ -20,7 +20,7 @@ e `fatex-initiative-skill` 1.0.0 num só módulo.
   fichas (inclusive de tokens não vinculados), configurações de mundo (tema global, perícia global de iniciativa e
   permissões dos jogadores) na primeira entrada do GM, e a opção do menu ☰ na primeira entrada de cada usuário.
 - Publicação pelo GitHub Releases: instalação pelo manifesto
-  `https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/module.json`, com conferência
+  `https://github.com/pedrohmlimonta/fatexcontinuedthemes/releases/latest/download/module.json`, com conferência
   automática do manifesto, dos scripts, dos idiomas e das imagens usadas pelo CSS.
 
 ## Versões anteriores

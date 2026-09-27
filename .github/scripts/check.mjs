@@ -35,6 +35,14 @@ function finish(manifest) {
   if (errors.length) {
     console.error(`✖ ${errors.length} problema(s) encontrado(s) em ${root}:\n`);
     for (const error of errors) console.error(`• ${error}\n`);
+    // No GitHub Actions, cada problema também vira uma anotação, exibida no resumo do run
+    // (em vez de só "Process completed with exit code 1")
+    if (process.env.GITHUB_ACTIONS === "true") {
+      for (const error of errors) {
+        const message = error.replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A");
+        console.log(`::error title=Conferência do módulo::${message}`);
+      }
+    }
     process.exit(1);
   }
   console.log(`✔ ${manifest.id} ${manifest.version}: manifesto, scripts, idiomas e arquivos usados pelo CSS conferidos.`);

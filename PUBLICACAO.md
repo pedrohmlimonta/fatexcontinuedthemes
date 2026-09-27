@@ -11,16 +11,16 @@ A GitHub Action `.github/workflows/release.yml` confere o módulo, ajusta a vers
 as URLs conforme o repositório, monta o zip e anexa os dois arquivos à release. Você não precisa instalar nada além
 do git.
 
-## 0. Copiar as imagens dos temas (antes do primeiro envio)
+O repositório se chama `fatexcontinuedthemes`; o ID do módulo continua `fatexcontinued-themes` (é o nome da pasta
+em `Data/modules` e o que as macros usam). Os dois não precisam ser iguais.
+
+## 0. Colocar as imagens dos temas no repositório
 
 O zip do módulo que serviu de base **não tinha a pasta `assets`**, e o CSS dos temas A.E.G.I.S e Jujutsu Kaisen usa
-imagens de lá. Copie os arquivos do módulo antigo instalado no seu Foundry:
+imagens de lá. Enquanto alguma delas faltar, o CI e a publicação **falham de propósito** ("Process completed with
+exit code 1") e listam o que falta — assim uma versão sem imagens nunca chega aos jogadores.
 
-```
-<pasta de dados do Foundry>/Data/modules/fatex-themes/assets/   →   fatexcontinued-themes/assets/
-```
-
-Arquivos esperados (mesmos nomes, mesmas subpastas):
+Arquivos esperados (mesmos nomes, **em minúsculas**, mesmas subpastas):
 
 ```
 assets/logos/jujutsulogo.png
@@ -35,18 +35,26 @@ assets/backgrounds/shyriu.gif
 assets/backgrounds/sukuna.gif
 ```
 
-A pasta de dados padrão é `%localappdata%\FoundryVTT\Data` no Windows, `~/Library/Application Support/FoundryVTT/Data`
+Eles estão no módulo antigo instalado no seu Foundry, em `<pasta de dados>/Data/modules/fatex-themes/assets/`. A
+pasta de dados padrão é `%localappdata%\FoundryVTT\Data` no Windows, `~/Library/Application Support/FoundryVTT/Data`
 no macOS e `~/.local/share/FoundryVTT/Data` no Linux (o caminho exato aparece em **Configuration → User Data Path**
-na tela de configuração do Foundry).
+na tela de configuração do Foundry). Se o Foundry roda num servidor, cada imagem também abre no navegador em
+`<endereço do Foundry>/modules/fatex-themes/assets/backgrounds/gojogif.gif` (e assim por diante) e pode ser salva
+de lá.
 
-Enquanto alguma dessas imagens faltar, o CI e a publicação **falham de propósito** e listam o que falta — assim uma
-versão sem imagens nunca chega aos jogadores. Se alguma imagem não existir mais, remova a referência dela em
-`styles/themes.css`.
+**Pelo site do GitHub:** no repositório, entre em `assets` → `backgrounds` → **Add file → Upload files**, arraste as
+8 imagens dessa pasta e clique em **Commit changes**. Repita em `assets` → `logos` com as 2 imagens de lá. Pelo site,
+cada arquivo pode ter no máximo 25 MB; acima disso, envie pelo git ou pelo GitHub Desktop (limite de 100 MB).
+
+**Pelo git:** copie as imagens para `assets/` na sua pasta do repositório e faça
+`git add . && git commit -m "Imagens dos temas" && git push`.
+
+Se alguma imagem não existir mais, remova a referência dela em `styles/themes.css`.
 
 ## 1. Criar o repositório no GitHub (uma vez)
 
 1. Acesse <https://github.com/new>.
-2. Nome do repositório: **`fatexcontinued-themes`**.
+2. Nome do repositório: **`fatexcontinuedthemes`**.
 3. Deixe o repositório **Public** — o Foundry baixa o manifesto e o zip sem login; em repositório privado o link
    dá 404.
 4. **Não** marque "Add a README", ".gitignore" nem "license" (o repositório precisa nascer vazio).
@@ -54,15 +62,15 @@ versão sem imagens nunca chega aos jogadores. Se alguma imagem não existir mai
 
 ## 2. Subir o código (uma vez)
 
-Descompacte o `fatexcontinued-themes-repo.zip`, copie as imagens (passo 0) e, dentro da pasta
-`fatexcontinued-themes`:
+Descompacte o `fatexcontinuedthemes-repo.zip`, copie as imagens (passo 0) e, dentro da pasta
+`fatexcontinuedthemes`:
 
 ```bash
 git init
 git add .
 git commit -m "FateX Continued Themes 2.0.0 - Foundry v14"
 git branch -M main
-git remote add origin https://github.com/pedrohmlimonta/fatexcontinued-themes.git
+git remote add origin https://github.com/pedrohmlimonta/fatexcontinuedthemes.git
 git push -u origin main
 ```
 
@@ -70,24 +78,26 @@ git push -u origin main
 > `.github/workflows`. Gere um token com o escopo **workflow** (GitHub → Settings → Developer settings → Personal
 > access tokens) ou envie pelo GitHub Desktop.
 
-Depois do push, a aba **Actions** mostra o workflow **CI**. Verde = tudo certo. Vermelho em "Conferir o módulo" =
-abra o log: ele lista exatamente o que falta (normalmente imagens do passo 0).
+Depois do push, a aba **Actions** mostra o workflow **CI**. Verde = tudo certo. Vermelho = abra o run: o motivo
+aparece em **Annotations** (normalmente as imagens do passo 0).
 
 ## 3. Publicar uma versão
 
-1. No repositório: **Releases → Draft a new release**.
-2. Em **Choose a tag**, digite **`v2.0.0`** (com o "v") e clique em **Create new tag: v2.0.0 on publish**
-   (target: `main`).
-3. Título: `2.0.0` (as notas podem ser copiadas do `CHANGELOG.md`).
-4. Clique em **Publish release** (não marque "pre-release": o link `latest` ignora pre-releases).
-5. Aba **Actions** → espere o run **Release** ficar com ✅ (menos de 1 minuto).
-6. Volte na release e confira em **Assets**: devem aparecer `module.json` e `fatexcontinued-themes.zip`.
-7. Teste no navegador — deve baixar o JSON:
+1. Confira se o último run do **CI** na aba **Actions** está verde.
+2. No repositório: **Releases → Draft a new release**.
+3. Em **Choose a tag**, digite a versão (ex.: **`2.0.0`** ou **`v2.0.0`**) e clique em **Create new tag … on
+   publish** (target: `main`).
+4. Título: a versão (as notas podem ser copiadas do `CHANGELOG.md`).
+5. Clique em **Publish release** (não marque "pre-release": o link `latest` ignora pre-releases).
+6. Aba **Actions** → espere o run **Release** ficar com ✅ (menos de 1 minuto).
+7. Volte na release e confira em **Assets**: devem aparecer `module.json` e `fatexcontinued-themes.zip`.
+8. Teste no navegador — deve baixar o JSON:
    ```
-   https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/module.json
+   https://github.com/pedrohmlimonta/fatexcontinuedthemes/releases/latest/download/module.json
    ```
 
-> A tag **precisa** estar no formato `vX.Y.Z`. Para as próximas: `v2.0.1`, `v2.1.0`, `v3.0.0`…
+> A tag precisa ser uma versão `X.Y.Z` (com ou sem "v" na frente), sempre maior que a anterior — é assim que o
+> Foundry percebe que há atualização.
 
 ## 4. Instalar no Foundry
 
@@ -95,7 +105,7 @@ abra o log: ele lista exatamente o que falta (normalmente imagens do passo 0).
 2. Foundry (tela de configuração) → **Add-on Modules → Install Module**.
 3. No campo **Manifest URL**, cole:
    ```
-   https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/module.json
+   https://github.com/pedrohmlimonta/fatexcontinuedthemes/releases/latest/download/module.json
    ```
 4. **Install**. Dentro do mundo, ative o módulo em **Gerenciar Módulos**.
 
@@ -109,16 +119,16 @@ Quando você publicar uma versão nova, o Foundry mostra a atualização em **Ad
    com F5.
 3. Atualize o `CHANGELOG.md` (e, se quiser, o `"version"` do `module.json` — a Action sobrescreve com a tag).
 4. `git add . && git commit -m "..." && git push`.
-5. Publique uma nova release com a tag seguinte (passo 3).
+5. Publique uma nova release com a versão seguinte (passo 3).
 
 ## Problemas comuns
 
 | Sintoma | Causa provável |
 | --- | --- |
-| CI ou Release falhou em "Conferir o módulo" listando arquivos | Faltam imagens usadas pelo CSS em `assets/` (passo 0). |
-| A release foi publicada mas ficou sem os arquivos em **Assets** | O run **Release** falhou. Corrija, dê push, apague a release **e a tag** e publique de novo (reexecutar o run usa o código antigo da tag). |
+| CI ou Release com "Process completed with exit code 1" | Abra o run na aba **Actions**: a lista do que falta aparece em **Annotations**. Quase sempre são as imagens do passo 0. |
+| A release foi publicada mas ficou sem os arquivos em **Assets** | O run **Release** falhou. Corrija e dê push, apague a release **e a tag** (em **Releases** e em **Tags**) e publique de novo — reexecutar o run antigo não adianta, porque ele usa o código da tag. |
 | O link do manifesto dá 404 | A release ainda não terminou, foi salva como rascunho/pre-release, ficou sem os arquivos ou o repositório está privado. |
-| Run **Release** falhou em "Atualizar versão" | A tag não está no formato `vX.Y.Z`. Apague a release e a tag e crie de novo. |
+| Run **Release** falhou em "Atualizar versão e URLs" | A tag não é uma versão `X.Y.Z`. Apague a release e a tag e crie de novo. |
 | Run **Release** falhou em "Anexar arquivos" (`Resource not accessible by integration`) | Em **Settings → Actions → General → Workflow permissions**, marque **Read and write permissions**. |
-| O `git push` recusa um arquivo | O GitHub não aceita arquivos acima de 100 MB; diminua o GIF antes de enviar. |
+| O GitHub recusa um arquivo | Pelo site, o limite é 25 MB por arquivo; pelo git/GitHub Desktop, 100 MB. Diminua o GIF se passar disso. |
 | O módulo não aparece em **Gerenciar Módulos** | O mundo não usa o sistema FateX Continued. |

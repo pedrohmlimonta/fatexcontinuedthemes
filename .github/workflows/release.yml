@@ -1,6 +1,6 @@
 name: Release
 
-# Publica o módulo quando uma release é publicada no GitHub (tag no formato vX.Y.Z).
+# Publica o módulo quando uma release é publicada no GitHub (tag no formato X.Y.Z ou vX.Y.Z).
 # Anexa à release os arquivos usados pela instalação por manifesto:
 #   - module.json                -> https://github.com/<usuario>/<repo>/releases/latest/download/module.json
 #   - fatexcontinued-themes.zip  -> https://github.com/<usuario>/<repo>/releases/download/<tag>/fatexcontinued-themes.zip
@@ -35,7 +35,7 @@ jobs:
           const version = tag.replace(/^v/, "");
 
           if (!/^\d+\.\d+\.\d+([-+].+)?$/.test(version)) {
-            console.error(`A tag "${tag}" não é uma versão válida. Use o formato vX.Y.Z (ex.: v2.0.0).`);
+            console.error(`A tag "${tag}" não é uma versão válida. Use o formato X.Y.Z ou vX.Y.Z (ex.: 2.0.0).`);
             process.exit(1);
           }
 
