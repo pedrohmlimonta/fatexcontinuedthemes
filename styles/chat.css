@@ -1,0 +1,85 @@
+/* ======================================================================
+   FateX Continued Themes — Chat
+   ----------------------------------------------------------------------
+   As cartas que a ficha manda para o chat (aspectos, façanhas, extras e
+   rolagens de perícia) seguem o tema da ficha que as enviou: a mensagem recebe a classe .theme-X, então as variáveis e as
+   regras de cada tema em themes.css valem aqui também (fonte, faixas de
+   título, brilho do texto...).
+
+   Este arquivo só veste a moldura da mensagem e o que existe apenas no
+   chat, sempre com as variáveis do tema — um tema novo já sai com o chat
+   combinando, sem precisar mexer aqui:
+     --bg-primary    fundo da mensagem
+     --bg-secondary  faixa do cabeçalho (como o cabeçalho da janela da ficha)
+     --accent        texto sobre --bg-secondary
+     --border        bordas e destaques sobre --bg-primary (dados, total)
+     --text-primary  texto
+     --text-shadow   brilho
+   ====================================================================== */
+
+/* Moldura da mensagem */
+li.chat-message.fatex-themes-chat[data-fatex-theme] {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 0 8px var(--text-shadow) !important;
+}
+
+/* Cabeçalho (quem enviou, horário, lixeira) — igual ao cabeçalho da janela da ficha */
+li.chat-message.fatex-themes-chat[data-fatex-theme] .message-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 4px 4px 0 0 !important;
+  padding: 3px 8px !important;
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .message-header,
+li.chat-message.fatex-themes-chat[data-fatex-theme] .message-header * {
+  color: var(--accent) !important;
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .message-sender {
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+/* Carta de item (aspecto, façanha, extra...) e carta de rolagem */
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-item-card,
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-chat {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  font-family: inherit !important;
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-item-card__description {
+  color: var(--text-primary) !important;
+}
+
+/* Rolagem de perícia */
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-roll,
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-roll__ladder {
+  color: var(--text-primary) !important;
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-dice > div:not(.fatex-dice__magic_die),
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-dice > label,
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-roll__total {
+  color: var(--border) !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-dice--2d6-roll > div {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-roll-actions button {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+li.chat-message.fatex-themes-chat[data-fatex-theme] .fatex-roll-actions button:hover:not(:disabled) {
+  box-shadow: 0 0 8px var(--text-shadow);
+}

@@ -1,6 +1,13 @@
 # Changelog
 
-## 2.0.0
+## 0.0.3
+
+- **Chat com o tema da ficha:** o que a ficha manda para o chat (aspectos, façanhas, extras e rolagens de perícia)
+  aparece com o visual do tema daquela ficha — fundo, cores, bordas, fonte, faixa do título e brilho — e acompanha
+  quando o tema da ficha (ou o tema global) muda. Mensagens comuns e fichas com o tema "Padrão FateX" não mudam.
+  Funciona com qualquer tema, inclusive os novos, porque usa as variáveis do próprio tema.
+
+## 0.0.2
 
 Primeira versão como **FateX Continued Themes** (`fatexcontinued-themes`), que reúne os antigos `fatex-themes` 1.2.0
 e `fatex-initiative-skill` 1.0.0 num só módulo.

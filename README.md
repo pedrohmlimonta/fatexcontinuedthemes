@@ -40,6 +40,10 @@ façanhas e tudo mais continuam funcionando normalmente. Só muda a aparência.
 - **Menu ☰ no cabeçalho** — junta os botões do cabeçalho da ficha (Modo de Edição, Configuração da Ficha etc.) em
   um menu suspenso; o botão de fechar continua visível. É uma configuração de cada usuário (ligada por padrão). O
   botão ☰ só aparece para o GM — para os jogadores, os botões recolhidos ficam ocultos.
+- **Chat com o tema da ficha** — o que a ficha manda para o chat (aspectos, façanhas, extras e rolagens de perícia)
+  aparece com o visual do tema daquela ficha: fundo, cores, bordas, fonte, faixa do título e brilho. Se o tema da
+  ficha mudar, as mensagens dela no chat acompanham. Mensagens comuns do chat e fichas com o tema "Padrão FateX"
+  continuam com o visual normal.
 
 ### Temas inclusos
 
@@ -80,11 +84,13 @@ existente, renomear a classe e trocar as variáveis):
 
 ```css
 .theme-meu_tema {
-  --bg-primary: #seu_fundo;
-  --bg-secondary: #fundo_das_secoes;
-  --accent: #destaque;
+  --bg-primary: #seu_fundo;            /* fundo da ficha e da mensagem no chat */
+  --bg-secondary: #fundo_das_secoes;   /* faixas de título e cabeçalho */
+  --bg-input: #fundo_dos_campos;
+  --accent: #destaque;                 /* texto sobre --bg-secondary */
   --text-primary: #sua_cor_texto;
-  --border: #borda;
+  --border: #borda;                    /* bordas e destaques sobre --bg-primary */
+  --text-shadow: #cor_do_brilho;       /* ou none */
   background: var(--bg-primary) !important;
   color: var(--text-primary) !important;
 }
@@ -96,6 +102,9 @@ existente, renomear a classe e trocar as variáveis):
 
 Imagens próprias vão em `assets/` (por exemplo `assets/backgrounds/` e `assets/logos/`) e são referenciadas no CSS
 com `url("../assets/...")`. Recarregue o Foundry (F5) e o tema já aparece no seletor.
+
+O chat usa essas mesmas variáveis (arquivo `styles/chat.css`), então defina todas elas: com isso o tema novo já sai
+com as mensagens do chat combinando, sem mexer em mais nada.
 
 **Dica — descobrindo classes CSS:** abra a ficha no Foundry, aperte **F12**, vá na aba **Elements/Inspetor** e veja
 as classes dos elementos para saber o que sobrescrever. Algumas das mais usadas pelos temas: `.fatex-header`,

@@ -9,6 +9,7 @@
  *  - Botão de troca de tema no header (apenas GM por padrão)
  *  - Colapso dos botões do header em dropdown (☰) — economiza espaço
  *  - Restrições via setting (player pode trocar? colapsar header?)
+ *  - Cartas que a ficha manda para o chat seguem o tema da ficha
  *  - Migra sozinho os temas e as configurações salvos pelo antigo "fatex-themes"
  */
 
@@ -88,7 +89,10 @@ Hooks.once("init", () => {
     hint: "FATEX_THEMES.Settings.GlobalTheme.Hint",
     scope: "world", config: true, type: String, default: "default",
     choices: AVAILABLE_THEMES.reduce((a, t) => { a[t.id] = t.label; return a; }, {}),
-    onChange: () => rerenderActorSheets()
+    onChange: () => {
+      rerenderActorSheets();
+      refreshChatThemes();
+    }
   });
 
   game.settings.register(MODULE_ID, "allowPlayerThemeChange", {
@@ -247,6 +251,54 @@ function closeDropdownsOnOutsideClick(ev) {
     }
   });
 }
+
+/* ====================================================================== */
+/*  Chat: cartas enviadas pela ficha seguem o tema da ficha                 */
+/* ====================================================================== */
+
+// Cartas que o FateX manda da ficha para o chat: aspectos, façanhas, extras e rolagens de perícia
+const CHAT_CARD_SELECTOR = ".fatex-item-card, .fatex-chat";
+
+/**
+ * Aplica no <li> da mensagem o tema da ficha que a enviou (a do token, quando veio de um token não vinculado).
+ * Só mexe nas classes que este módulo colocou (guardadas em data-fatex-theme); mensagens comuns, de outras
+ * fichas sem tema ou com o tema "Padrão FateX" ficam como estão.
+ */
+function applyChatTheme(element, message) {
+  if (!element?.classList) return;
+  const previous = element.dataset.fatexTheme;
+  if (previous) element.classList.remove("fatex-themes-chat", `theme-${previous}`);
+  delete element.dataset.fatexTheme;
+
+  if (!isFateXContinued()) return;
+  if (!element.querySelector(CHAT_CARD_SELECTOR)) return;
+  const actor = message?.speakerActor;
+  if (!actor) return;
+  const theme = getEffectiveTheme(actor);
+  if (!theme || theme === "default") return;
+
+  element.classList.add("fatex-themes-chat", `theme-${theme}`);
+  element.dataset.fatexTheme = theme;
+}
+
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  let element = toElement(html);
+  if (element && !element.matches?.(".chat-message")) element = element.querySelector?.(".chat-message") ?? element;
+  applyChatTheme(element, message);
+});
+
+/** Reaplica o tema nas mensagens que já estão na tela (chat, chat destacado e notificações) */
+function refreshChatThemes() {
+  for (const element of document.querySelectorAll(".chat-message[data-message-id]")) {
+    const message = game.messages?.get(element.dataset.messageId);
+    if (message) applyChatTheme(element, message);
+  }
+}
+
+// Tema trocado numa ficha (por qualquer usuário) → as cartas dela no chat acompanham
+const changesTheme = (changes) => changes?.flags?.[MODULE_ID] !== undefined;
+Hooks.on("updateActor", (actor, changes) => { if (changesTheme(changes)) refreshChatThemes(); });
+Hooks.on("updateActorDelta", (delta, changes) => { if (changesTheme(changes)) refreshChatThemes(); });
 
 /* ====================================================================== */
 /*  Diálogo de seleção de tema                                              */
