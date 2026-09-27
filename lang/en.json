@@ -1,0 +1,28 @@
+{
+  "FATEX_THEMES.PickTheme": "Theme",
+  "FATEX_THEMES.Menu": "Menu",
+  "FATEX_THEMES.PickThemeLabel": "Pick the visual theme for this sheet:",
+  "FATEX_THEMES.PickThemeHint": "The theme only changes the look. Mechanics, skills, aspects, and data remain identical.",
+  "FATEX_THEMES.Save": "Save",
+  "FATEX_THEMES.Cancel": "Cancel",
+
+  "FATEX_THEMES.CurrentStatus": "Current status",
+  "FATEX_THEMES.Status.UsingGlobal": "This sheet uses the world's GLOBAL theme: <em>{theme}</em>",
+  "FATEX_THEMES.Status.HasOverride": "This sheet has an INDIVIDUAL theme set: <em>{theme}</em>",
+  "FATEX_THEMES.UseGlobalOption": "Use the world's global theme (currently: {theme})",
+
+  "FATEX_THEMES.Tooltip.UsingGlobal": "This sheet uses the global theme. Click to set an individual theme.",
+  "FATEX_THEMES.Tooltip.HasOverride": "This sheet has an individual theme. Click to change it or revert to global.",
+
+  "FATEX_THEMES.Notif.ResetToGlobal": "Sheet now uses the world's global theme.",
+  "FATEX_THEMES.Notif.ThemeSet": "Individual theme set: {theme}",
+
+  "FATEX_THEMES.Settings.GlobalTheme.Name": "World global theme",
+  "FATEX_THEMES.Settings.GlobalTheme.Hint": "Theme applied to every sheet that does NOT have an individual theme set.",
+
+  "FATEX_THEMES.Settings.AllowPlayer.Name": "Allow players to change theme on their own sheets",
+  "FATEX_THEMES.Settings.AllowPlayer.Hint": "If disabled (default), only the GM sees the theme picker button.",
+
+  "FATEX_THEMES.Settings.CollapseHeader.Name": "Collapse header buttons into a menu (☰)",
+  "FATEX_THEMES.Settings.CollapseHeader.Hint": "Hides 'Edit Mode', 'Sheet Configuration', 'Theatre', etc. inside a dropdown menu to save space at the top of the sheet. The close button remains visible."
+}

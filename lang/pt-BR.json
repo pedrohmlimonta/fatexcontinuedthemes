@@ -1,0 +1,28 @@
+{
+  "FATEX_THEMES.PickTheme": "Tema",
+  "FATEX_THEMES.Menu": "Menu",
+  "FATEX_THEMES.PickThemeLabel": "Escolha o tema visual desta ficha:",
+  "FATEX_THEMES.PickThemeHint": "O tema afeta apenas a aparência. Mecânica, perícias, aspectos e dados continuam idênticos.",
+  "FATEX_THEMES.Save": "Salvar",
+  "FATEX_THEMES.Cancel": "Cancelar",
+
+  "FATEX_THEMES.CurrentStatus": "Status atual",
+  "FATEX_THEMES.Status.UsingGlobal": "Esta ficha está usando o tema GLOBAL do mundo: <em>{theme}</em>",
+  "FATEX_THEMES.Status.HasOverride": "Esta ficha tem tema INDIVIDUAL definido: <em>{theme}</em>",
+  "FATEX_THEMES.UseGlobalOption": "Usar tema global do mundo (atualmente: {theme})",
+
+  "FATEX_THEMES.Tooltip.UsingGlobal": "Esta ficha usa o tema global. Clique para definir um tema individual.",
+  "FATEX_THEMES.Tooltip.HasOverride": "Esta ficha tem tema individual. Clique para trocar ou voltar ao global.",
+
+  "FATEX_THEMES.Notif.ResetToGlobal": "Ficha agora usa o tema global do mundo.",
+  "FATEX_THEMES.Notif.ThemeSet": "Tema individual definido: {theme}",
+
+  "FATEX_THEMES.Settings.GlobalTheme.Name": "Tema global do mundo",
+  "FATEX_THEMES.Settings.GlobalTheme.Hint": "Tema aplicado em todas as fichas que NÃO tiverem um tema individual configurado.",
+
+  "FATEX_THEMES.Settings.AllowPlayer.Name": "Permitir que jogadores troquem o tema das próprias fichas",
+  "FATEX_THEMES.Settings.AllowPlayer.Hint": "Se desligado (padrão), apenas o GM vê o botão de troca de tema.",
+
+  "FATEX_THEMES.Settings.CollapseHeader.Name": "Colapsar botões do cabeçalho em um menu (☰)",
+  "FATEX_THEMES.Settings.CollapseHeader.Hint": "Esconde os botões 'Modo de Edição', 'Configuração da Ficha', 'Theatre' etc. em um menu suspenso, economizando espaço no topo da ficha. O botão de fechar permanece visível."
+}

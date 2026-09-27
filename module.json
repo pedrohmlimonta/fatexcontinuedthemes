@@ -1,0 +1,52 @@
+{
+  "id": "fatexcontinued-themes",
+  "title": "FateX Continued Themes — Fichas Visuais Customizadas",
+  "description": "Permite escolher diferentes layouts visuais para as fichas do FateX Continued sem alterar a mecânica. Inclui temas prontos (Blue Lock, A.E.G.I.S e Jujutsu Kaisen), tema global do mundo com tema individual por ficha e suporte fácil para criar novos.",
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.368"
+  },
+  "authors": [
+    {
+      "name": "Pedro (pedrohmlimonta)",
+      "url": "https://github.com/pedrohmlimonta"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "fatexcontinued",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.0.0"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/init.js"
+  ],
+  "styles": [
+    "styles/themes.css"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "license": "LICENSE",
+  "url": "https://github.com/pedrohmlimonta/fatexcontinued-themes",
+  "bugs": "https://github.com/pedrohmlimonta/fatexcontinued-themes/issues",
+  "readme": "https://github.com/pedrohmlimonta/fatexcontinued-themes/blob/main/README.md",
+  "changelog": "https://github.com/pedrohmlimonta/fatexcontinued-themes/blob/main/CHANGELOG.md",
+  "manifest": "https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/module.json",
+  "download": "https://github.com/pedrohmlimonta/fatexcontinued-themes/releases/latest/download/fatexcontinued-themes.zip"
+}

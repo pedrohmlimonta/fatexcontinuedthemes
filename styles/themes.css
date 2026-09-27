@@ -1,0 +1,1814 @@
+/* ======================================================================
+   FateX Themes — v1.2.0
+   ----------------------------------------------------------------------
+   Cada tema define um conjunto de variáveis CSS (--bg-primary, --accent,
+   etc.) e uma sequência de regras genéricas usa essas variáveis para
+   pintar a ficha. Para criar um tema novo: copie o bloco BLUE LOCK,
+   renomeie a classe, e troque só as variáveis.
+   ====================================================================== */
+
+/* ====================================================================== */
+/*  BOTÕES DO MÓDULO (tema + menu)                                          */
+/* ====================================================================== */
+body:not(.user-isGM) .fatex-themes-menu-toggle {
+  display: none !important;
+}
+
+.fatex-themes-button,
+.fatex-themes-menu-toggle {
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.15s ease;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.fatex-themes-button:hover,
+.fatex-themes-menu-toggle:hover {
+  opacity: 1;
+  text-shadow: 0 0 6px currentColor;
+}
+
+/* Esconde labels longas dos botões do menu em telas menores */
+@media (max-width: 900px) {
+  .fatex-themes-menu-label {
+    display: none;
+  }
+}
+
+.fatex-artwork {
+  padding-bottom: 0px !important;
+}
+
+.fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 1));
+}
+
+section.fatex-item-grid.fatex-u-padding-std {
+  padding-top: 0px !important;
+}
+
+/* ====================================================================== */
+/*  DROPDOWN DO HEADER                                                      */
+/* ====================================================================== */
+
+.window-app .window-header.fatex-themes-collapsed {
+  position: relative;
+  overflow: visible;
+}
+
+.fatex-themes-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 4px;
+  margin-top: 2px;
+  min-width: 200px;
+  background: var(--bg-primary, #1a1a1a);
+  border: 1px solid var(--accent, #555);
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  padding: 4px 0;
+}
+
+.fatex-themes-dropdown.open {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.fatex-themes-dropdown a.header-button {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px !important;
+  margin: 0 !important;
+  text-align: left !important;
+  white-space: nowrap;
+  color: var(--text-primary, #fff) !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.fatex-themes-dropdown a.header-button:hover {
+  background: var(--accent, #00d4ff) !important;
+  color: var(--bg-primary, #000) !important;
+  text-shadow: none !important;
+}
+
+.fatex-themes-dropdown a.header-button i {
+  width: 16px;
+  text-align: center;
+}
+.fatex-desk__sidebar{
+  box-shadow: none !important;
+}
+/* ====================================================================== */
+/*  REGRAS GENÉRICAS APLICÁVEIS A TODOS OS TEMAS (exceto default)
+    Usam as CSS vars, então cada tema só define as variáveis e pronto.
+    ====================================================================== */
+/* Elementos do FateX especificamente — nome de classes prováveis */
+
+.fatex-js-edit-mode .fatex-actions--item,
+.fatex-js-edit-mode .fatex-actions--section-heading {
+  background: linear-gradient(90deg, transparent, var(--bg-primary), var(--bg-primary)) !important;
+}
+
+.fatex-actions.fatex-actions--section-heading {
+  color: var(--text-primary) !important;
+}
+
+.fatex-text-input__label,
+input[type=text].fatex-text-input__label,
+span.fatex-checkbox__label,
+.fatex-text-input__icon,
+input[type=text].fatex-text-input__icon,
+span.fatex-js-skill-decrement.fatex-actions__icon.fatex-actions__icon--secondary,
+span.fatex-js-skill-increment.fatex-actions__icon.fatex-actions__icon--secondary,
+i.fatex-checkbox__icon.fa.fa-times {
+  color: var(--text-primary) !important;
+}
+
+.fatex-actions--headline {
+  right: 0 !important
+}
+
+.fatex-js-edit-mode .fatex-actions--headline,
+.fatex-js-edit-mode .fatex-actions--skill {
+  background: linear-gradient(90deg, transparent, var(--bg-primary), var(--bg-primary)) !important;
+}
+
+.fatex-tab-content.fatex-tab-content--skills.tab.active section:first-of-type,
+.fatex-item-grid--skills {
+  width: 100% !important;
+}
+
+.fatex-tab-content.fatex-tab-content--skills.tab.active section:last-of-type {
+  display: none !important;
+}
+
+.fatex-header__logo svg {
+  display: none;
+}
+
+.fatex-header__logo {
+  width: 100px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.window-resizable-handle,
+header.window-header.flexrow.draggable.resizable.fatex-themes-collapsed {
+  z-index: 10 !important;
+}
+
+section.window-content.fatex-js-edit-mode,
+.fatex-desk__tabloid,
+section.fatex-desk__sidebar {
+  z-index: 1 !important;
+}
+
+a.fatex-tabs-navigation__item:first-of-type {
+  font-size: 0 !important;
+}
+
+a.fatex-tabs-navigation__item:first-of-type:before {
+  content: "Perícias";
+  font-size: 13px;
+}
+
+.fatex-section-heading h2 {
+  border-color: transparent !important;
+}
+
+header.fatex-header {
+  background: transparent !important;
+}
+
+* {
+  scrollbar-color: var(--accent) var(--bg-primary) !important;
+}
+
+a.header-button.control.close,
+h4.window-title {
+  color: var(--accent) !important;
+}
+
+
+small.fatex-copyright {
+  display: none !important;
+}
+a.fatex-tabs-navigation__item{
+  padding: 5px 15px 5px 15px !important;
+}
+a.fatex-tabs-navigation__item:first-of-type{
+  max-width: 94px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: BLUE LOCK */
+/* ====================================================================== */
+
+.theme-bluelock {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --bg-input: rgba(0, 25, 70, 0.65);
+  --accent: #00d4ff;
+  --text-primary: #e0e7ff;
+  --border: #00d4ff;
+  --text-shadow: rgba(0, 212, 255, 0.5);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-bluelock .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-bluelock .fatex-header__logo {
+  filter: brightness(39.5) grayscale(1);
+}
+
+.theme-bluelock .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-bluelock {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-bluelock .window-content,
+.theme-bluelock .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-bluelock input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-bluelock input,
+.theme-bluelock textarea,
+.theme-bluelock select,
+.theme-bluelock input[type="text"],
+.theme-bluelock input[type="number"],
+.theme-bluelock [contenteditable="true"],
+.theme-bluelock input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-bluelock h1,
+.theme-bluelock h2,
+.theme-bluelock h3,
+.theme-bluelock .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-bluelock a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-bluelock a.fatex-tabs-navigation__item.active,
+.theme-bluelock a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-bluelock svg path[fill="white"],
+.theme-bluelock svg path[fill="#fff"],
+.theme-bluelock svg path[fill="#ffffff"],
+.theme-bluelock svg polygon[fill="white"],
+.theme-bluelock svg polygon[fill="#fff"],
+.theme-bluelock svg rect[fill="white"],
+.theme-bluelock svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-bluelock [style*="background-color: white"],
+.theme-bluelock [style*="background-color: #fff"],
+.theme-bluelock [style*="background-color: rgb(255"],
+.theme-bluelock [style*="background: white"],
+.theme-bluelock [style*="background: #fff"],
+.theme-bluelock [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-bluelock *::before,
+.theme-bluelock *::after {
+  border: none !important;
+}
+
+.theme-bluelock.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-bluelock .fatex-aspect,
+.theme-bluelock .fatex-headline,
+.theme-bluelock .fatex-section-headline,
+.theme-bluelock .fatex-section,
+.theme-bluelock [class*="fatex__skill"],
+.theme-bluelock [class*="fatex__aspect"],
+.theme-bluelock [class*="fatex__consequence"],
+.theme-bluelock [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-bluelock h1,
+.theme-bluelock h2,
+.theme-bluelock h3 {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-bluelock [class*="fatex__skill"],
+.theme-bluelock [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #001a4d 0%, #003d99 100%) !important;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3) !important;
+}
+
+.theme-bluelock nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-bluelock .fatex-header__logo {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Blue_Lock_anime_logo_EN.svg/3840px-Blue_Lock_anime_logo_EN.svg.png") !important;
+}
+
+.theme-bluelock .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.pinimg.com/originals/97/88/78/9788782452aed2a7abda3e155535d6b5.gif");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: AEGIS                                                        */
+/* ====================================================================== */
+.theme-aegis {
+  --bg-primary: white;
+  --bg-secondary: #5d6889;
+  --bg-input: rgba(209, 209, 209, 0.637);
+  --accent: white;
+  --text-primary: black;
+  --border: #dc143c;
+  --text-shadow: none;
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-aegis {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-aegis .fatex-checkbox {
+  border-color: var(--border) !important;
+}
+
+.theme-aegis .window-content,
+.theme-aegis .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-aegis input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-aegis input,
+.theme-aegis textarea,
+.theme-aegis select,
+.theme-aegis input[type="text"],
+.theme-aegis input[type="number"],
+.theme-aegis [contenteditable="true"],
+.theme-aegis input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-aegis h1,
+.theme-aegis h3,
+.theme-aegis .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-aegis h2 {
+  color: var(--border) !important;
+}
+
+.theme-aegis .fatex-headline__text,
+.theme-aegis h2.fatex-headline__text {
+  color: var(--accent) !important;
+}
+
+.theme-aegis a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-aegis a.fatex-tabs-navigation__item.active,
+.theme-aegis a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-aegis label.fatex-header__label.fatex-header__label--center,
+label.fatex-header__label {
+  color: var(--border) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-aegis svg path[fill="white"],
+.theme-aegis svg path[fill="#fff"],
+.theme-aegis svg path[fill="#ffffff"],
+.theme-aegis svg polygon[fill="white"],
+.theme-aegis svg polygon[fill="#fff"],
+.theme-aegis svg rect[fill="white"],
+.theme-aegis svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-aegis [style*="background-color: white"],
+.theme-aegis [style*="background-color: #fff"],
+.theme-aegis [style*="background-color: rgb(255"],
+.theme-aegis [style*="background: white"],
+.theme-aegis [style*="background: #fff"],
+.theme-aegis [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-aegis *::before,
+.theme-aegis *::after {
+  border: none !important;
+}
+
+.theme-aegis.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-aegis .fatex-aspect,
+.theme-aegis .fatex-headline,
+.theme-aegis .fatex-section-headline,
+.theme-aegis .fatex-section,
+.theme-aegis [class*="fatex__skill"],
+.theme-aegis [class*="fatex__aspect"],
+.theme-aegis [class*="fatex__consequence"],
+.theme-aegis [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-aegis h1,
+.theme-aegis h2,
+.theme-aegis h3 {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-aegis [class*="fatex__skill"],
+.theme-aegis [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #001a4d 0%, #003d99 100%) !important;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3) !important;
+}
+
+.theme-aegis nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--bg-secondary) !important;
+}
+
+.theme-aegis .fatex-header__logo {
+  background-image: url("../assets/logos/logocomtextocrimson.png") !important;
+}
+
+.theme-aegis .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  top: 120px;
+  right: 70px;
+  bottom: 50px;
+  left: 70px;
+  background-image: url("../assets/backgrounds/logopreta.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.theme-aegis a.header-button:hover,
+.theme-aegis .fatex-header__fatepoint-divider,
+.theme-aegis i.fas.fa-sync-alt.fatex-js-refresh-fatepoints {
+  color: var(--border) !important;
+}
+
+.theme-aegis * {
+  scrollbar-color: var(--border) var(--bg-primary) !important;
+}
+
+/* ====================================================================== */
+/*  TEMA: DEFAULT — sem overrides                                           */
+/* ====================================================================== */
+
+.theme-default {
+  /* nada */
+}
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN GOJO */
+/* ====================================================================== */
+
+.theme-jujutsukaisengojo {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --bg-input: rgba(0, 25, 70, 0.65);
+  --accent: rgb(152, 75, 253);
+  --text-primary: #e0e7ff;
+  --border: rgb(152, 75, 253);
+  --text-shadow: rgba(119, 0, 255, 0.5);
+  --header-shadow: rgba(119, 0, 255, 0.3);
+  --headline-shadow: rgba(119, 0, 255, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaisengojo .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+.theme-jujutsukaisengojo .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaisengojo .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaisengojo .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaisengojo .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisengojo {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisengojo .window-content,
+.theme-jujutsukaisengojo .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisengojo input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaisengojo input,
+.theme-jujutsukaisengojo textarea,
+.theme-jujutsukaisengojo select,
+.theme-jujutsukaisengojo input[type="text"],
+.theme-jujutsukaisengojo input[type="number"],
+.theme-jujutsukaisengojo [contenteditable="true"],
+.theme-jujutsukaisengojo input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisengojo h1,
+.theme-jujutsukaisengojo h2,
+.theme-jujutsukaisengojo h3,
+.theme-jujutsukaisengojo .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaisengojo a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisengojo a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaisengojo a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaisengojo svg path[fill="white"],
+.theme-jujutsukaisengojo svg path[fill="#fff"],
+.theme-jujutsukaisengojo svg path[fill="#ffffff"],
+.theme-jujutsukaisengojo svg polygon[fill="white"],
+.theme-jujutsukaisengojo svg polygon[fill="#fff"],
+.theme-jujutsukaisengojo svg rect[fill="white"],
+.theme-jujutsukaisengojo svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisengojo [style*="background-color: white"],
+.theme-jujutsukaisengojo [style*="background-color: #fff"],
+.theme-jujutsukaisengojo [style*="background-color: rgb(255"],
+.theme-jujutsukaisengojo [style*="background: white"],
+.theme-jujutsukaisengojo [style*="background: #fff"],
+.theme-jujutsukaisengojo [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisengojo *::before,
+.theme-jujutsukaisengojo *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaisengojo.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisengojo .fatex-aspect,
+.theme-jujutsukaisengojo .fatex-headline,
+.theme-jujutsukaisengojo .fatex-section-headline,
+.theme-jujutsukaisengojo .fatex-section,
+.theme-jujutsukaisengojo [class*="fatex__skill"],
+.theme-jujutsukaisengojo [class*="fatex__aspect"],
+.theme-jujutsukaisengojo [class*="fatex__consequence"],
+.theme-jujutsukaisengojo [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaisengojo .fatex-section-heading h2,
+.theme-jujutsukaisengojo .fatex-header__label--center,
+.theme-jujutsukaisengojo .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaisengojo [class*="fatex__skill"],
+.theme-jujutsukaisengojo [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #11004d 0%, #420099 100%) !important;
+  box-shadow: 0 0 8px rgba(89, 0, 255, 0.3) !important;
+}
+
+.theme-jujutsukaisengojo nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisengojo .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaisengojo .fatex-headline__text,
+.theme-jujutsukaisengojo h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisengojo .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/gojogif.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.theme-jujutsukaisengojo .fatex-checkbox__label {
+  display: none !important;
+}
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN SUKUNA */
+/* ====================================================================== */
+
+.theme-jujutsukaisensukuna {
+  --bg-primary: #270a0c;
+  --bg-secondary: #3a1a1e;
+  --bg-input: rgba(70, 0, 9, 0.65);
+  --accent: #fd4b63;
+  --text-primary: #e0e7ff;
+  --border: #fd4b63;
+  --text-shadow: rgba(255, 0, 34, 0.5);
+  --header-shadow: rgba(255, 0, 34, 0.3);
+  --headline-shadow: rgba(255, 0, 34, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaisensukuna .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisensukuna {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisensukuna .window-content,
+.theme-jujutsukaisensukuna .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisensukuna input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaisensukuna input,
+.theme-jujutsukaisensukuna textarea,
+.theme-jujutsukaisensukuna select,
+.theme-jujutsukaisensukuna input[type="text"],
+.theme-jujutsukaisensukuna input[type="number"],
+.theme-jujutsukaisensukuna [contenteditable="true"],
+.theme-jujutsukaisensukuna input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisensukuna h1,
+.theme-jujutsukaisensukuna h2,
+.theme-jujutsukaisensukuna h3,
+.theme-jujutsukaisensukuna .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaisensukuna a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisensukuna a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaisensukuna a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaisensukuna svg path[fill="white"],
+.theme-jujutsukaisensukuna svg path[fill="#fff"],
+.theme-jujutsukaisensukuna svg path[fill="#ffffff"],
+.theme-jujutsukaisensukuna svg polygon[fill="white"],
+.theme-jujutsukaisensukuna svg polygon[fill="#fff"],
+.theme-jujutsukaisensukuna svg rect[fill="white"],
+.theme-jujutsukaisensukuna svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisensukuna [style*="background-color: white"],
+.theme-jujutsukaisensukuna [style*="background-color: #fff"],
+.theme-jujutsukaisensukuna [style*="background-color: rgb(255"],
+.theme-jujutsukaisensukuna [style*="background: white"],
+.theme-jujutsukaisensukuna [style*="background: #fff"],
+.theme-jujutsukaisensukuna [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisensukuna *::before,
+.theme-jujutsukaisensukuna *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaisensukuna.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-aspect,
+.theme-jujutsukaisensukuna .fatex-headline,
+.theme-jujutsukaisensukuna .fatex-section-headline,
+.theme-jujutsukaisensukuna .fatex-section,
+.theme-jujutsukaisensukuna [class*="fatex__skill"],
+.theme-jujutsukaisensukuna [class*="fatex__aspect"],
+.theme-jujutsukaisensukuna [class*="fatex__consequence"],
+.theme-jujutsukaisensukuna [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-section-heading h2,
+.theme-jujutsukaisensukuna .fatex-header__label--center,
+.theme-jujutsukaisensukuna .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaisensukuna [class*="fatex__skill"],
+.theme-jujutsukaisensukuna [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #4d0006 0%, #990014 100%) !important;
+  box-shadow: 0 0 8px rgba(255, 0, 21, 0.3) !important;
+}
+
+.theme-jujutsukaisensukuna nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-headline__text,
+.theme-jujutsukaisensukuna h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisensukuna .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/sukuna.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.theme-jujutsukaisensukuna .fatex-checkbox__label {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN KAEL */
+/* ====================================================================== */
+
+.theme-jujutsukaisenkael {
+  --bg-primary: #271d0a;
+  --bg-secondary: #3a2f1a;
+  --bg-input: rgba(70, 48, 0, 0.65);
+  --accent: #fdc54b;
+  --text-primary: #e0e7ff;
+  --border: #fdc54b;
+  --text-shadow: rgba(255, 187, 0, 0.5);
+  --header-shadow: rgba(255, 187, 0, 0.3);
+  --headline-shadow: rgba(255, 187, 0, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaisenkael .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaisenkael .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenkael {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenkael .window-content,
+.theme-jujutsukaisenkael .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenkael input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaisenkael input,
+.theme-jujutsukaisenkael textarea,
+.theme-jujutsukaisenkael select,
+.theme-jujutsukaisenkael input[type="text"],
+.theme-jujutsukaisenkael input[type="number"],
+.theme-jujutsukaisenkael [contenteditable="true"],
+.theme-jujutsukaisenkael input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenkael h1,
+.theme-jujutsukaisenkael h2,
+.theme-jujutsukaisenkael h3,
+.theme-jujutsukaisenkael .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenkael a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenkael a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaisenkael a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaisenkael svg path[fill="white"],
+.theme-jujutsukaisenkael svg path[fill="#fff"],
+.theme-jujutsukaisenkael svg path[fill="#ffffff"],
+.theme-jujutsukaisenkael svg polygon[fill="white"],
+.theme-jujutsukaisenkael svg polygon[fill="#fff"],
+.theme-jujutsukaisenkael svg rect[fill="white"],
+.theme-jujutsukaisenkael svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenkael [style*="background-color: white"],
+.theme-jujutsukaisenkael [style*="background-color: #fff"],
+.theme-jujutsukaisenkael [style*="background-color: rgb(255"],
+.theme-jujutsukaisenkael [style*="background: white"],
+.theme-jujutsukaisenkael [style*="background: #fff"],
+.theme-jujutsukaisenkael [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenkael *::before,
+.theme-jujutsukaisenkael *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaisenkael.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-aspect,
+.theme-jujutsukaisenkael .fatex-headline,
+.theme-jujutsukaisenkael .fatex-section-headline,
+.theme-jujutsukaisenkael .fatex-section,
+.theme-jujutsukaisenkael [class*="fatex__skill"],
+.theme-jujutsukaisenkael [class*="fatex__aspect"],
+.theme-jujutsukaisenkael [class*="fatex__consequence"],
+.theme-jujutsukaisenkael [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-section-heading h2,
+.theme-jujutsukaisenkael .fatex-header__label--center,
+.theme-jujutsukaisenkael .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaisenkael [class*="fatex__skill"],
+.theme-jujutsukaisenkael [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #4d0006 0%, #990014 100%) !important;
+  box-shadow: 0 0 8px rgba(255, 0, 21, 0.3) !important;
+}
+
+.theme-jujutsukaisenkael nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaisenkael .fatex-headline__text,
+.theme-jujutsukaisenkael h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenkael .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/kael.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.theme-jujutsukaisenkael .fatex-checkbox__label {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN VITOR */
+/* ====================================================================== */
+
+.theme-jujutsukaisenvitor {
+  --bg-primary: #0a2527;
+  --bg-secondary: #1a393a;
+  --bg-input: rgba(0, 65, 70, 0.65);
+  --accent: #4bfdc8;
+  --text-primary: #e0feff;
+  --border: #4bfdc8;
+  --text-shadow: rgba(0, 247, 255, 0.5);
+  --header-shadow: rgba(0, 247, 255, 0.3);
+  --headline-shadow: rgba(0, 247, 255, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaisenvitor .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenvitor {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenvitor .window-content,
+.theme-jujutsukaisenvitor .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenvitor input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaisenvitor input,
+.theme-jujutsukaisenvitor textarea,
+.theme-jujutsukaisenvitor select,
+.theme-jujutsukaisenvitor input[type="text"],
+.theme-jujutsukaisenvitor input[type="number"],
+.theme-jujutsukaisenvitor [contenteditable="true"],
+.theme-jujutsukaisenvitor input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenvitor h1,
+.theme-jujutsukaisenvitor h2,
+.theme-jujutsukaisenvitor h3,
+.theme-jujutsukaisenvitor .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenvitor a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenvitor a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaisenvitor a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaisenvitor svg path[fill="white"],
+.theme-jujutsukaisenvitor svg path[fill="#fff"],
+.theme-jujutsukaisenvitor svg path[fill="#ffffff"],
+.theme-jujutsukaisenvitor svg polygon[fill="white"],
+.theme-jujutsukaisenvitor svg polygon[fill="#fff"],
+.theme-jujutsukaisenvitor svg rect[fill="white"],
+.theme-jujutsukaisenvitor svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenvitor [style*="background-color: white"],
+.theme-jujutsukaisenvitor [style*="background-color: #fff"],
+.theme-jujutsukaisenvitor [style*="background-color: rgb(255"],
+.theme-jujutsukaisenvitor [style*="background: white"],
+.theme-jujutsukaisenvitor [style*="background: #fff"],
+.theme-jujutsukaisenvitor [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenvitor *::before,
+.theme-jujutsukaisenvitor *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaisenvitor.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-aspect,
+.theme-jujutsukaisenvitor .fatex-headline,
+.theme-jujutsukaisenvitor .fatex-section-headline,
+.theme-jujutsukaisenvitor .fatex-section,
+.theme-jujutsukaisenvitor [class*="fatex__skill"],
+.theme-jujutsukaisenvitor [class*="fatex__aspect"],
+.theme-jujutsukaisenvitor [class*="fatex__consequence"],
+.theme-jujutsukaisenvitor [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-section-heading h2,
+.theme-jujutsukaisenvitor .fatex-header__label--center,
+.theme-jujutsukaisenvitor .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaisenvitor [class*="fatex__skill"],
+.theme-jujutsukaisenvitor [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #4d0006 0%, #990014 100%) !important;
+  box-shadow: 0 0 8px rgba(255, 0, 21, 0.3) !important;
+}
+
+.theme-jujutsukaisenvitor nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-headline__text,
+.theme-jujutsukaisenvitor h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenvitor .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/shyriu.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.theme-jujutsukaisenvitor .fatex-checkbox__label {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN BRUNO */
+/* ====================================================================== */
+
+.theme-jujutsukaisenbruno {
+  --bg-primary: #180a27;
+  --bg-secondary: #2a1a3a;
+  --bg-input: rgba(39, 0, 70, 0.65);
+  --accent: #a74bfd;
+  --text-primary: #e0feff;
+  --border: #a74bfd;
+  --text-shadow: rgba(140, 0, 255, 0.5);
+  --header-shadow: rgba(140, 0, 255, 0.3);
+  --headline-shadow: rgba(140, 0, 255, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaisenbruno .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenbruno {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenbruno .window-content,
+.theme-jujutsukaisenbruno .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenbruno input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaisenbruno input,
+.theme-jujutsukaisenbruno textarea,
+.theme-jujutsukaisenbruno select,
+.theme-jujutsukaisenbruno input[type="text"],
+.theme-jujutsukaisenbruno input[type="number"],
+.theme-jujutsukaisenbruno [contenteditable="true"],
+.theme-jujutsukaisenbruno input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenbruno h1,
+.theme-jujutsukaisenbruno h2,
+.theme-jujutsukaisenbruno h3,
+.theme-jujutsukaisenbruno .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenbruno a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenbruno a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaisenbruno a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaisenbruno svg path[fill="white"],
+.theme-jujutsukaisenbruno svg path[fill="#fff"],
+.theme-jujutsukaisenbruno svg path[fill="#ffffff"],
+.theme-jujutsukaisenbruno svg polygon[fill="white"],
+.theme-jujutsukaisenbruno svg polygon[fill="#fff"],
+.theme-jujutsukaisenbruno svg rect[fill="white"],
+.theme-jujutsukaisenbruno svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenbruno [style*="background-color: white"],
+.theme-jujutsukaisenbruno [style*="background-color: #fff"],
+.theme-jujutsukaisenbruno [style*="background-color: rgb(255"],
+.theme-jujutsukaisenbruno [style*="background: white"],
+.theme-jujutsukaisenbruno [style*="background: #fff"],
+.theme-jujutsukaisenbruno [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenbruno *::before,
+.theme-jujutsukaisenbruno *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaisenbruno.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-aspect,
+.theme-jujutsukaisenbruno .fatex-headline,
+.theme-jujutsukaisenbruno .fatex-section-headline,
+.theme-jujutsukaisenbruno .fatex-section,
+.theme-jujutsukaisenbruno [class*="fatex__skill"],
+.theme-jujutsukaisenbruno [class*="fatex__aspect"],
+.theme-jujutsukaisenbruno [class*="fatex__consequence"],
+.theme-jujutsukaisenbruno [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-section-heading h2,
+.theme-jujutsukaisenbruno .fatex-header__label--center,
+.theme-jujutsukaisenbruno .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaisenbruno [class*="fatex__skill"],
+.theme-jujutsukaisenbruno [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #4d0006 0%, #990014 100%) !important;
+  box-shadow: 0 0 8px rgba(255, 0, 21, 0.3) !important;
+}
+
+.theme-jujutsukaisenbruno nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-headline__text,
+.theme-jujutsukaisenbruno h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenbruno .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/bruno.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.theme-jujutsukaisenbruno .fatex-checkbox__label {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN ABEL */
+/* ====================================================================== */
+
+.theme-jujutsukaisenabel {
+  --bg-primary: #270a0c;
+  --bg-secondary: #3a1a1e;
+  --bg-input: rgba(70, 0, 9, 0.65);
+  --accent: #fd4b63;
+  --text-primary: #e0e7ff;
+  --border: #fd4b63;
+  --text-shadow: rgba(255, 0, 34, 0.5);
+  --header-shadow: rgba(255, 0, 34, 0.3);
+  --headline-shadow: rgba(255, 0, 34, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaisenabel .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaisenabel .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenabel {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenabel .window-content,
+.theme-jujutsukaisenabel .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenabel input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaisenabel input,
+.theme-jujutsukaisenabel textarea,
+.theme-jujutsukaisenabel select,
+.theme-jujutsukaisenabel input[type="text"],
+.theme-jujutsukaisenabel input[type="number"],
+.theme-jujutsukaisenabel [contenteditable="true"],
+.theme-jujutsukaisenabel input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenabel h1,
+.theme-jujutsukaisenabel h2,
+.theme-jujutsukaisenabel h3,
+.theme-jujutsukaisenabel .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenabel a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenabel a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaisenabel a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaisenabel svg path[fill="white"],
+.theme-jujutsukaisenabel svg path[fill="#fff"],
+.theme-jujutsukaisenabel svg path[fill="#ffffff"],
+.theme-jujutsukaisenabel svg polygon[fill="white"],
+.theme-jujutsukaisenabel svg polygon[fill="#fff"],
+.theme-jujutsukaisenabel svg rect[fill="white"],
+.theme-jujutsukaisenabel svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenabel [style*="background-color: white"],
+.theme-jujutsukaisenabel [style*="background-color: #fff"],
+.theme-jujutsukaisenabel [style*="background-color: rgb(255"],
+.theme-jujutsukaisenabel [style*="background: white"],
+.theme-jujutsukaisenabel [style*="background: #fff"],
+.theme-jujutsukaisenabel [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaisenabel *::before,
+.theme-jujutsukaisenabel *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaisenabel.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-aspect,
+.theme-jujutsukaisenabel .fatex-headline,
+.theme-jujutsukaisenabel .fatex-section-headline,
+.theme-jujutsukaisenabel .fatex-section,
+.theme-jujutsukaisenabel [class*="fatex__skill"],
+.theme-jujutsukaisenabel [class*="fatex__aspect"],
+.theme-jujutsukaisenabel [class*="fatex__consequence"],
+.theme-jujutsukaisenabel [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-section-heading h2,
+.theme-jujutsukaisenabel .fatex-header__label--center,
+.theme-jujutsukaisenabel .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaisenabel [class*="fatex__skill"],
+.theme-jujutsukaisenabel [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #4d0006 0%, #990014 100%) !important;
+  box-shadow: 0 0 8px rgba(255, 0, 21, 0.3) !important;
+}
+
+.theme-jujutsukaisenabel nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaisenabel .fatex-headline__text,
+.theme-jujutsukaisenabel h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaisenabel .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/abel.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.theme-jujutsukaisenabel .fatex-checkbox__label {
+  display: none !important;
+}
+
+
+
+
+
+/* ====================================================================== */
+/*  TEMA: JUJUTSU KAISEN EVERIN */
+/* ====================================================================== */
+
+.theme-jujutsukaiseneverin {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --bg-input: rgba(0, 25, 70, 0.65);
+  --accent: rgb(152, 75, 253);
+  --text-primary: #e0e7ff;
+  --border: rgb(152, 75, 253);
+  --text-shadow: rgba(119, 0, 255, 0.5);
+  --header-shadow: rgba(119, 0, 255, 0.3);
+  --headline-shadow: rgba(119, 0, 255, 0.1);
+  font-family: "Roboto Condensed", "Bebas Neue", sans-serif !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-headline__icon {
+  text-shadow: -2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px -2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 2px 0 var(--fatex-primary-color, var(--headline-shadow)), -2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 2px 0 0 var(--fatex-primary-color, var(--headline-shadow)), 0 -2px 0 var(--fatex-primary-color, var(--headline-shadow)), 0 2px 0 var(--fatex-primary-color, var(--headline-shadow)) !important;
+}
+.theme-jujutsukaiseneverin .fatex-header {
+  border-bottom: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 15px 0 var(--header-shadow) !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-artwork__wrapper {
+  filter: drop-shadow(0px 0px 6px var(--accent)) !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-header__logo {
+  /* filter: brightness(39.5) grayscale(1); */
+}
+
+.theme-jujutsukaiseneverin .fatex-checkbox {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaiseneverin {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaiseneverin .window-content,
+.theme-jujutsukaiseneverin .sheet-body {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaiseneverin input.fatex-text-input.fatex-text-input--header {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: transparent !important;
+}
+
+.theme-jujutsukaiseneverin input,
+.theme-jujutsukaiseneverin textarea,
+.theme-jujutsukaiseneverin select,
+.theme-jujutsukaiseneverin input[type="text"],
+.theme-jujutsukaiseneverin input[type="number"],
+.theme-jujutsukaiseneverin [contenteditable="true"],
+.theme-jujutsukaiseneverin input.fatex-text-input.fatex-text-input--header:focus {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaiseneverin h1,
+.theme-jujutsukaiseneverin h2,
+.theme-jujutsukaiseneverin h3,
+.theme-jujutsukaiseneverin .sheet-header {
+  color: var(--accent) !important;
+}
+
+.theme-jujutsukaiseneverin a.fatex-tabs-navigation__item {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaiseneverin a.fatex-tabs-navigation__item.active,
+.theme-jujutsukaiseneverin a.fatex-tabs-navigation__item:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px var(--text-shadow) !important;
+}
+
+.theme-jujutsukaiseneverin svg path[fill="white"],
+.theme-jujutsukaiseneverin svg path[fill="#fff"],
+.theme-jujutsukaiseneverin svg path[fill="#ffffff"],
+.theme-jujutsukaiseneverin svg polygon[fill="white"],
+.theme-jujutsukaiseneverin svg polygon[fill="#fff"],
+.theme-jujutsukaiseneverin svg rect[fill="white"],
+.theme-jujutsukaiseneverin svg rect[fill="#fff"] {
+  fill: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaiseneverin [style*="background-color: white"],
+.theme-jujutsukaiseneverin [style*="background-color: #fff"],
+.theme-jujutsukaiseneverin [style*="background-color: rgb(255"],
+.theme-jujutsukaiseneverin [style*="background: white"],
+.theme-jujutsukaiseneverin [style*="background: #fff"],
+.theme-jujutsukaiseneverin [style*="background: rgb(255"] {
+  background: var(--bg-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-jujutsukaiseneverin *::before,
+.theme-jujutsukaiseneverin *::after {
+  border: none !important;
+}
+
+.theme-jujutsukaiseneverin.window-app .window-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-aspect,
+.theme-jujutsukaiseneverin .fatex-headline,
+.theme-jujutsukaiseneverin .fatex-section-headline,
+.theme-jujutsukaiseneverin .fatex-section,
+.theme-jujutsukaiseneverin [class*="fatex__skill"],
+.theme-jujutsukaiseneverin [class*="fatex__aspect"],
+.theme-jujutsukaiseneverin [class*="fatex__consequence"],
+.theme-jujutsukaiseneverin [class*="fatex__stress"] {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-section-heading h2,
+.theme-jujutsukaiseneverin .fatex-header__label--center,
+.theme-jujutsukaiseneverin .fatex-tabs-navigation__item.active {
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px var(--text-shadow);
+}
+
+.theme-jujutsukaiseneverin [class*="fatex__skill"],
+.theme-jujutsukaiseneverin [class*="fatex__aspect"] {
+  background: linear-gradient(90deg, #11004d 0%, #420099 100%) !important;
+  box-shadow: 0 0 8px rgba(89, 0, 255, 0.3) !important;
+}
+
+.theme-jujutsukaiseneverin nav.fatex-js-tabs-navigation.fatex-tabs-navigation {
+  border-color: var(--accent) !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-header__logo {
+  background-image: url("../assets/logos/jujutsulogo.png") !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-headline__text,
+.theme-jujutsukaiseneverin h2.fatex-headline__text {
+  color: var(--text-primary) !important;
+}
+
+.theme-jujutsukaiseneverin .fatex-desk__content--actor-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/backgrounds/everinbg.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.theme-jujutsukaiseneverin .fatex-checkbox__label {
+  display: none !important;
+}
+
+

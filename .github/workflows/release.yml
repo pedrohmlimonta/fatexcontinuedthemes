@@ -1,0 +1,81 @@
+name: Release
+
+# Publica o módulo quando uma release é publicada no GitHub (tag no formato vX.Y.Z).
+# Anexa à release os arquivos usados pela instalação por manifesto:
+#   - module.json                -> https://github.com/<usuario>/<repo>/releases/latest/download/module.json
+#   - fatexcontinued-themes.zip  -> https://github.com/<usuario>/<repo>/releases/download/<tag>/fatexcontinued-themes.zip
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Atualizar versão e URLs do module.json
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          node <<'EOF'
+          const fs = require("fs");
+          const tag = process.env.TAG;
+          const repo = process.env.REPO;
+          const version = tag.replace(/^v/, "");
+
+          if (!/^\d+\.\d+\.\d+([-+].+)?$/.test(version)) {
+            console.error(`A tag "${tag}" não é uma versão válida. Use o formato vX.Y.Z (ex.: v2.0.0).`);
+            process.exit(1);
+          }
+
+          const file = "module.json";
+          const manifest = JSON.parse(fs.readFileSync(file, "utf8"));
+          const base = `https://github.com/${repo}`;
+          const branch = process.env.BRANCH || "main";
+
+          manifest.version = version;
+          manifest.url = base;
+          manifest.bugs = `${base}/issues`;
+          manifest.readme = `${base}/blob/${branch}/README.md`;
+          manifest.changelog = `${base}/blob/${branch}/CHANGELOG.md`;
+          manifest.manifest = `${base}/releases/latest/download/module.json`;
+          manifest.download = `${base}/releases/download/${tag}/fatexcontinued-themes.zip`;
+
+          fs.writeFileSync(file, JSON.stringify(manifest, null, 2) + "\n");
+          console.log(`module.json -> versão ${manifest.version}`);
+          console.log(`manifest: ${manifest.manifest}`);
+          console.log(`download: ${manifest.download}`);
+          EOF
+
+      - name: Conferir o módulo
+        run: node .github/scripts/check.mjs
+
+      - name: Montar o zip do módulo
+        run: |
+          zip -r fatexcontinued-themes.zip module.json scripts styles lang assets README.md CHANGELOG.md LICENSE \
+            -x "*.gitkeep" "*.DS_Store" "*Thumbs.db" "*desktop.ini"
+          unzip -l fatexcontinued-themes.zip | tail -n 3
+
+      - name: Conferir o conteúdo do zip
+        run: |
+          mkdir -p "$RUNNER_TEMP/zip-check"
+          unzip -q fatexcontinued-themes.zip -d "$RUNNER_TEMP/zip-check"
+          node .github/scripts/check.mjs "$RUNNER_TEMP/zip-check"
+
+      - name: Anexar arquivos à release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.json
+            fatexcontinued-themes.zip
