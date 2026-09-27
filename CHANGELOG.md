@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.0.4
+
+- **FateX Extras incorporado ao módulo.** Os recursos do módulo `fatex-extras` 1.1.0, de **shrade**, agora fazem
+  parte do FateX Continued Themes, atualizados para o Foundry v14 e o FateX Continued: Gerenciador de Aspectos,
+  aspectos no mapa, "Pagar custo" antes do +2 e do "rolar de novo", +1/−1 do GM nas cartas de rolagem, invocações
+  grátis nos aspectos e consequências da ficha, consequências no chat, botão de nova sessão, modo escuro e o dado de
+  ponto de destino do Dice So Nice. Textos em português, inglês e russo.
+- Diferenças em relação ao FateX Extras original:
+  - Os diálogos ("Pagar custo", "Nova sessão", etiquetas e confirmações do Gerenciador) usam o `DialogV2` do
+    Foundry, e o botão do Gerenciador usa o formato de controles de cena do v14.
+  - Soltar um aspecto no mapa cria a nota na cena que está aberta, no ponto exato onde foi solto (antes ia sempre
+    para a cena ativa e saía fora do lugar com o mapa arrastado ou com zoom).
+  - As notas dos aspectos acompanham o Gerenciador em todas as cenas, não só na cena ativa.
+  - Depois de pagar o custo, quem aplica o +2 ou rola de novo é o próprio sistema, do jeito normal — inclusive o
+    pedido ao GM quando o jogador não é o dono da carta.
+  - Os +1/−1 funcionam em cada rolagem da carta (antes, só na primeira) e somam certo também no modo de rolagem
+    1d6−1d6; o texto deles no histórico é guardado pela hora de cada ajuste.
+  - O modo escuro não mexe nas fichas com tema próprio nem nas cartas delas no chat.
+  - A mensagem de apoio ao autor (Ko-fi) aparece só para o GM, e não para todos no chat.
+  - O estilo do diálogo "Pagar custo" não altera mais o cabeçalho das fichas.
+  - As consequências enviadas ao chat usam a mesma carta dos aspectos do sistema.
+  - O módulo não usa canal (socket) próprio: o original tentava usar um, mas ele nunca chegou a funcionar e
+    permitiria que um jogador alterasse qualquer documento do mundo.
+- **Migração automática do `fatex-extras`**, sem apagar nada, na primeira entrada do GM: configurações dos aspectos
+  no mapa, o diário "Aspectos globais do FateX" (aspectos de cena, categorias, etiquetas e invocações), as
+  invocações grátis das fichas (inclusive de tokens não vinculados), os aspectos já colocados nos mapas e o histórico
+  dos +1/−1. O **Modo escuro** é copiado quando cada usuário entra pela primeira vez. A escolha do dado no Dice So
+  Nice é mantida.
+
 ## 0.0.3
 
 - **Chat com o tema da ficha:** o que a ficha manda para o chat (aspectos, façanhas, extras e rolagens de perícia)

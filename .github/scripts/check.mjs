@@ -86,9 +86,20 @@ for (const file of referenced) {
 /*  Scripts e idiomas                                               */
 /* ---------------------------------------------------------------- */
 
+// Todos os scripts: os do module.json e os que eles importam (tudo dentro de scripts/)
+function listScripts(dir) {
+  if (!fs.existsSync(abs(dir))) return [];
+  return fs.readdirSync(abs(dir), { withFileTypes: true }).flatMap((entry) => {
+    const file = `${dir}/${entry.name}`;
+    if (entry.isDirectory()) return listScripts(file);
+    return /\.m?js$/.test(entry.name) ? [file] : [];
+  });
+}
+const scriptFiles = [...new Set([...esmodules.filter(isFile), ...listScripts("scripts")])];
+
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "module-check-"));
 try {
-  for (const file of esmodules.filter(isFile)) {
+  for (const file of scriptFiles) {
     // A extensão .mjs faz o Node conferir o arquivo como módulo ES, do mesmo jeito que o Foundry o carrega
     const copy = path.join(tmp, `${path.basename(file, path.extname(file))}.mjs`);
     fs.copyFileSync(abs(file), copy);

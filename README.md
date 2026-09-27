@@ -1,13 +1,17 @@
-# FateX Continued Themes — Fichas Visuais e Iniciativa por Perícia
+# FateX Continued Themes — Temas, Iniciativa e Extras
 
 Módulo para Foundry VTT, feito para o sistema **[FateX Continued](https://github.com/pedrohmlimonta/fatexcontinued)**,
-que junta duas coisas:
+que junta três coisas:
 
-- **Temas visuais** — escolha diferentes layouts para as fichas sem alterar nada da mecânica;
-- **Iniciativa por perícia** — a iniciativa é rolada com uma perícia configurável: `4dF + perícia + bônus`.
+- **Temas visuais** — escolha diferentes layouts para as fichas (e para o que elas mandam ao chat) sem alterar nada
+  da mecânica;
+- **Iniciativa por perícia** — a iniciativa é rolada com uma perícia configurável: `4dF + perícia + bônus`;
+- **Extras** — os recursos do FateX Extras, de shrade: Gerenciador de Aspectos de cena, pagamento de custo no +2 e
+  no "rolar de novo", +1/−1 do GM, invocações grátis nas fichas, nova sessão, modo escuro e dado de ponto de destino
+  para o Dice So Nice.
 
-É a continuação dos antigos `fatex-themes` e `fatex-initiative-skill`, reunidos num só módulo e atualizados para o
-Foundry VTT v14 e para o sistema `fatexcontinued`.
+É a continuação dos antigos `fatex-themes`, `fatex-initiative-skill` e `fatex-extras`, reunidos num só módulo e
+atualizados para o Foundry VTT v14 e para o sistema `fatexcontinued`.
 
 ## Requisitos
 
@@ -153,17 +157,53 @@ trackers de outros módulos que usem a rolagem de iniciativa padrão do Foundry.
 - **Não aparece o botão "Iniciativa" na ficha** — por padrão, só o GM vê. Ative a configuração que libera para os
   jogadores.
 
-## Vindo dos módulos antigos (`fatex-themes` e `fatex-initiative-skill`)
+## Extras (antigo FateX Extras)
+
+Recursos criados por **shrade** no [FateX Extras](https://github.com/shradee/FateX-Extras), atualizados para o
+Foundry v14 e para o FateX Continued.
+
+- **Gerenciador de Aspectos** — botão com o ícone de livro nos controles de token (barra da esquerda). Aspectos de
+  cena organizados em categorias, com cor, etiquetas, invocações grátis e invocações do GM. O GM cria, edita,
+  esconde dos jogadores e reorganiza tudo arrastando; os jogadores veem os aspectos visíveis e podem marcar as
+  invocações.
+- **Aspectos no mapa** — o GM arrasta um aspecto do Gerenciador para o mapa e ele vira uma nota (desenho) com o
+  nome, as etiquetas e as invocações. A nota acompanha as mudanças feitas no Gerenciador. Fonte, opacidade, moldura
+  e o que aparece na nota ficam nas configurações do módulo.
+- **Pagar custo** — ao clicar em **+2** ou em **rolar de novo** numa carta de rolagem, abre um diálogo para escolher
+  como pagar: gastar um ponto de destino, usar uma invocação grátis (de um aspecto de cena ou de um aspecto/consequência
+  de ficha) ou seguir sem custo. Depois de pago, o sistema aplica a ação normalmente.
+- **+1 / −1 do GM** — botões extras nas cartas de rolagem, só para o GM, que ajustam o resultado e ficam registrados
+  no histórico da rolagem.
+- **Invocações grátis na ficha** — contador nos aspectos e consequências da ficha (quem é dono da ficha ajusta com
+  − e +). Ele é o mesmo que aparece no "Pagar custo".
+- **Consequências no chat** — as consequências ganham o botão de mandar para o chat, como os aspectos (e seguem o
+  tema da ficha).
+- **Nova sessão** — botão ao lado dos pontos de destino que, depois de confirmar, volta os pontos para o valor da
+  recarga.
+- **Modo escuro** — configuração de cada usuário que escurece janelas e fichas. Fichas com um tema próprio (e as
+  cartas delas no chat) continuam com o tema.
+- **Dice So Nice** — dado de ponto de destino (sistema "FateX Extras"), usado ao gastar ou recarregar pontos de destino.
+
+Os aspectos de cena ficam guardados num diário escondido, **"Aspectos globais do FateX"**, criado quando o GM entra
+no mundo (ele não aparece na lista de diários e não pode ser excluído).
+
+## Vindo dos módulos antigos (`fatex-themes`, `fatex-initiative-skill` e `fatex-extras`)
 
 1. Migre o mundo para o sistema FateX Continued (veja o README do sistema).
 2. Instale este módulo pelo manifesto e ative-o no mundo.
 3. Entre no mundo como GM. Na primeira vez, o módulo copia sozinho, sem apagar nada dos módulos antigos:
-   - os temas individuais e a perícia/bônus de iniciativa de cada ficha (inclusive de tokens não vinculados);
-   - as configurações de mundo: tema global, perícia global de iniciativa e as permissões dos jogadores.
+   - os temas individuais, a perícia/bônus de iniciativa e as invocações grátis de cada ficha (inclusive de tokens
+     não vinculados);
+   - as configurações de mundo: tema global, perícia global de iniciativa, permissões dos jogadores e as
+     configurações dos aspectos no mapa;
+   - o diário do FateX Extras com os aspectos de cena, categorias e etiquetas (o mesmo diário passa a ser usado),
+     os aspectos já colocados nos mapas e o histórico dos +1/−1 nas cartas de rolagem.
 
-   A opção **Menu ☰** é salva no navegador de cada usuário e é copiada quando cada um entra pela primeira vez.
+   As opções **Menu ☰** e **Modo escuro** são salvas no navegador de cada usuário e são copiadas quando cada um entra
+   pela primeira vez.
 4. Macros que usavam `game.modules.get("fatex-themes").api` ou `game.modules.get("fatex-initiative-skill").api`
-   passam a usar `game.modules.get("fatexcontinued-themes").api` — as funções têm os mesmos nomes.
+   passam a usar `game.modules.get("fatexcontinued-themes").api` — as funções têm os mesmos nomes. (O FateX Extras
+   não tinha API.)
 5. Se nenhum outro mundo usar o FateX original, os módulos antigos podem ser desinstalados.
 
 ## API para macros
@@ -194,7 +234,14 @@ console.log(api.listActorSkills(actor));       // perícias da ficha, com o rank
 O passo a passo para subir no GitHub e publicar versões instaláveis pelo manifesto está em
 [`PUBLICACAO.md`](PUBLICACAO.md).
 
-## Licença
+## Créditos e licença
 
-MIT — use, modifique e compartilhe à vontade. As imagens e marcas dos temas (Blue Lock, Jujutsu Kaisen etc.)
-pertencem aos seus respectivos donos.
+- Temas e iniciativa por perícia: Pedro (pedrohmlimonta), licença MIT — use, modifique e compartilhe à vontade.
+- Extras: adaptados do [FateX Extras](https://github.com/shradee/FateX-Extras), de **shrade**
+  ([Ko-fi](https://ko-fi.com/shrade_himself)). O repositório original não publica uma licença, então essa parte
+  (`scripts/extras/`, `templates/extras/`, `styles/extras*.css`, as traduções `FAx.*` e `lang/ru.json`) pertence ao
+  autor original e não está coberta pela licença MIT — veja o arquivo `LICENSE`.
+- Modelo 3D do dado de ponto de destino (`assets/extras/dc_die.glb`):
+  [Fate point tokens, no Cults3D](https://cults3d.com/en/3d-model/game/fate-point-tokens), sob a licença do autor
+  do modelo.
+- As imagens e marcas dos temas (Blue Lock, Jujutsu Kaisen etc.) pertencem aos seus respectivos donos.

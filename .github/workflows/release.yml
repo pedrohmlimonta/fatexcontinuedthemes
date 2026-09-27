@@ -62,9 +62,10 @@ jobs:
         run: node .github/scripts/check.mjs
 
       - name: Montar o zip do módulo
+        # Vai tudo, menos o que só serve ao repositório (.github, guia de publicação, placeholders)
         run: |
-          zip -r fatexcontinued-themes.zip module.json scripts styles lang assets README.md CHANGELOG.md LICENSE \
-            -x "*.gitkeep" "*.DS_Store" "*Thumbs.db" "*desktop.ini"
+          zip -r fatexcontinued-themes.zip . \
+            -x ".git/*" ".github/*" ".gitignore" "PUBLICACAO.md" "*.zip" "*.gitkeep" "*.DS_Store" "*Thumbs.db" "*desktop.ini"
           unzip -l fatexcontinued-themes.zip | tail -n 3
 
       - name: Conferir o conteúdo do zip

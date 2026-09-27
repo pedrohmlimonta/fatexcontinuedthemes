@@ -19,3 +19,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---------------------------------------------------------------------------
+
+Third-party parts / Partes de terceiros
+
+The files adapted from FateX Extras by shrade (https://github.com/shradee/FateX-Extras) -
+scripts/extras/, templates/extras/, styles/extras.css, styles/extras-dark-mode.css,
+lang/ru.json and the "FAx.*" translation keys in lang/ - are NOT covered by the MIT
+license above. The original project does not publish a license; these parts belong to
+their original author.
+
+Os arquivos adaptados do FateX Extras, de shrade, listados acima NÃO estão cobertos pela
+licença MIT acima. O projeto original não publica uma licença; essas partes pertencem ao
+autor original.
+
+assets/extras/dc_die.glb: "Fate point tokens" 3D model,
+https://cults3d.com/en/3d-model/game/fate-point-tokens - subject to its author's license.

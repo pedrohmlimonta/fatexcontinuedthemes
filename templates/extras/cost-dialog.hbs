@@ -1,0 +1,37 @@
+<div class="fatex-cost-dialog fatex-dialog-theme">
+    <div class="fatex-header">
+        <h3 class="fatex-header__text">{{localize "FAx.CostDialog.Title"}}</h3>
+    </div>
+
+    <p class="fatex-cost-description">{{localize "FAx.CostDialog.Description"}}</p>
+
+    <div class="fatex-cost-options">
+        <div class="fatex-cost-option {{#unless canPayFatePoint}}disabled{{/unless}}">
+            <label>
+                <input type="radio" name="cost-type" value="fatepoint" {{#unless canPayFatePoint}}disabled{{/unless}} {{#if (eq defaultChoice "fatepoint")}}checked{{/if}}>
+                <span class="fatex-cost-label">{{localize "FAx.CostDialog.PayFatePoint"}}</span>
+                <span class="fatex-cost-info">({{localize "FAx.CostDialog.Current"}}: {{fatePoints}})</span>
+            </label>
+        </div>
+
+        <div class="fatex-cost-option {{#unless hasAspects}}disabled{{/unless}}">
+            <label>
+                <input type="radio" name="cost-type" value="aspect" {{#unless hasAspects}}disabled{{/unless}} {{#if (eq defaultChoice "aspect")}}checked{{/if}}>
+                <span class="fatex-cost-label">{{localize "FAx.CostDialog.UseFreeInvoke"}}</span>
+            </label>
+            <input type="hidden" name="aspect-select" value="0">
+            <div class="fatex-select-custom {{#unless (eq defaultChoice "aspect")}}disabled{{/unless}}">
+                {{#each aspects as |option index|}}
+                    <div class="fatex-select-option {{#if @first}}selected{{/if}}" data-value="{{index}}">{{option.name}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="fatex-cost-option">
+            <label>
+                <input type="radio" name="cost-type" value="free" {{#if (eq defaultChoice "free")}}checked{{/if}}>
+                <span class="fatex-cost-label">{{localize "FAx.CostDialog.Free"}}</span>
+            </label>
+        </div>
+    </div>
+</div>

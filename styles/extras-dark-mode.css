@@ -1,0 +1,613 @@
+/* ======================================================================
+   FateX Continued Themes — Modo escuro (antigo "FateX Extras", de shrade)
+   ----------------------------------------------------------------------
+   Ligado pela configuração "Ativar modo escuro" (classe fatex-dark-mode
+   no <body>). Fichas com um tema próprio (.fatex-themed) e as cartas delas
+   no chat (.fatex-themes-chat) ficam de fora: nelas vale o visual do tema.
+   A exclusão usa :where(), então não muda a força (especificidade) das regras.
+   ====================================================================== */
+
+body.fatex-dark-mode {
+    --fx-dark-bg-app: #1e1e1e;
+    --fx-dark-bg-panel: #252526;
+    --fx-dark-bg-header: #2f3542; 
+    --fx-dark-bg-input: #2d2d2d;
+    --fx-dark-bg-element: #383838;
+    
+    --fx-dark-text-main: #f5f5f5;
+    --fx-dark-text-muted: #cccccc;
+    --fx-dark-text-header: #ffffff;
+    
+    --fx-dark-accent: #ffffff;
+    --fx-dark-border: rgba(255, 255, 255, 0.1);
+    --fx-dark-border-light: rgba(255, 255, 255, 0.2);
+    
+    --fx-dark-bg-glass: rgba(30, 30, 30, 0.75);
+    --fx-dark-bg-panel-glass: rgba(37, 37, 38, 0.75);
+}
+
+body.fatex-dark-mode .window-app:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-glass) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--fx-dark-border) !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+}
+
+body.fatex-dark-mode .window-app .window-header:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-header:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-header) !important;
+    border-bottom: 1px solid var(--fx-dark-border) !important;
+    color: var(--fx-dark-text-header) !important;
+    padding: 4px 8px !important;
+}
+
+body.fatex-dark-mode .window-app .window-title:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    color: var(--fx-dark-text-header) !important;
+}
+
+body.fatex-dark-mode .window-content:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-desk:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .fatex-desk__sidebar:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-panel-glass) !important;
+    border-left: 1px solid var(--fx-dark-border) !important;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1) !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-header) !important;
+    border: none !important; 
+    margin-bottom: 8px !important;
+    padding: 2px 5px !important;
+    position: relative;
+}
+
+body.fatex-dark-mode .fatex-headline__text:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-section-heading h2:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: #ffffff !important; 
+    font-weight: bold !important;
+    text-shadow: none !important;
+    margin: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex-artwork__wrapper:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex-desk__sidebar .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after {
+    display: none !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-artwork__wrapper:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important;
+    border: none !important;
+    clip-path: none !important;
+    position: relative !important;
+    z-index: 0 !important; 
+    overflow: visible !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before,
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: var(--fx-dark-bg-header) !important;
+    clip-path: polygon(
+        16px 0, 
+        100% 0, 
+        100% calc(100% - 16px), 
+        calc(100% - 16px) 100%, 
+        0 100%, 
+        0 16px
+    ) !important;
+    border: none !important;
+    z-index: -1 !important;
+}
+
+body.fatex-dark-mode .fatex-artwork__wrapper:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    
+    background: var(--fx-dark-bg-header) !important; 
+    clip-path: polygon(
+        26px 0, 
+        100% 0, 
+        100% calc(100% - 26px), 
+        calc(100% - 26px) 100%, 
+        0 100%, 
+        0 26px
+    ) !important;
+    border: none !important;
+    z-index: -1 !important;
+}
+
+body.fatex-dark-mode .fatex-desk__sidebar .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    background: var(--fx-dark-bg-header) !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex-tabs-navigation__item.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after {
+    display: block !important;
+    border-top-color: var(--fx-dark-bg-glass) !important;
+    border-bottom-color: transparent !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    clip-path: none !important; 
+    overflow: visible !important;
+    background: transparent !important;
+    border: none !important;
+    position: relative !important;
+    z-index: 0 !important;
+    padding: 2px 5px !important;
+    margin-bottom: 8px !important;
+}
+
+body.fatex-dark-mode .fatex-artwork__wrapper:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    
+    clip-path: polygon(
+        26px 0, 
+        100% 0, 
+        100% calc(100% - 26px), 
+        calc(100% - 26px) 100%, 
+        0 100%, 
+        0 26px
+    ) !important;
+}
+
+body.fatex-dark-mode .fatex-actions__icon:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-muted) !important;
+    transition: color 0.2s;
+}
+
+body.fatex-dark-mode .fatex-actions__icon:hover:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-accent) !important;
+}
+
+body.fatex-dark-mode label:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-text-input__label:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-text-input__icon:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-checkbox__label:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode h1:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode h2:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode h3:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode h4:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode h5:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode h6:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .fatex-text-input__label:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-muted) !important;
+}
+
+body.fatex-dark-mode .fatex-text-input__icon:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important;
+}
+
+body.fatex-dark-mode input[type="text"]:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode input[type="number"]:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode select:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode textarea:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-text-input:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: var(--fx-dark-text-main) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+    padding: 6px 8px !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+    min-height: 30px !important;
+}
+
+body.fatex-dark-mode input:focus:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode textarea:focus:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode select:focus:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-text-input:focus:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1) !important;
+    outline: none !important;
+}
+
+body.fatex-dark-mode button:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-element) !important;
+    color: var(--fx-dark-text-main) !important;
+    border: 1px solid var(--fx-dark-border) !important;
+    box-shadow: var(--fx-shadow-soft) !important;
+    border-radius: 3px !important;
+    transition: all 0.2s ease !important;
+}
+
+body.fatex-dark-mode button:hover:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-border-light) !important;
+    color: #fff !important;
+    border-color: var(--fx-dark-text-muted) !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .fatex-scene-aspect:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-scene-aspects .fatex-aspect-group:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-element) !important;
+    
+    border-top: 1px solid var(--fx-dark-border) !important;
+    border-right: 1px solid var(--fx-dark-border) !important;
+    border-bottom: 1px solid var(--fx-dark-border) !important;
+    border-radius: 4px !important;
+    box-shadow: var(--fx-shadow-soft) !important;
+    margin-bottom: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .fatex-row-main .aspect-name:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+    color: var(--fx-dark-text-main) !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .fatex-row-main .aspect-name:focus:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1) !important;
+    outline: none !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .fatex-group-header:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-panel) !important;
+    border-bottom: 1px solid var(--fx-dark-border) !important;
+    border-radius: 4px 4px 0 0 !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .fatex-group-header .group-label:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-muted) !important;
+    font-weight: 600 !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .aspect-tag-pill:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .invoke-counter.hostile:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: rgba(255, 0, 0, 0.2) !important;
+    color: #ff6b6b !important;
+    border: 1px solid rgba(255, 107, 107, 0.3) !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .invoke-counter.hostile .invoke-control:hover:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: #ffffff !important;
+}
+
+body.fatex-dark-mode .fatex-item-grid .fatex-headline__text:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-skill .fatex-headline__text:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex__stunt .fatex-headline__text:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .fatex-item-description:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-item-description p:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-item-description li:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-item-description div:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-muted) !important;
+}
+
+body.fatex-dark-mode .fatex-item-description strong:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-item-description b:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode #chat-log .chat-message:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .chat-message:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-panel) !important;
+    background-image: none !important;
+    border: 1px solid var(--fx-dark-border) !important;
+    padding: 0 !important;
+    box-shadow: var(--fx-shadow-soft) !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .chat-message .message-content:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important;
+    background-image: none !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .chat-message .message-header:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-header) !important;
+    color: var(--fx-dark-text-muted) !important;
+    border-bottom: 1px solid var(--fx-dark-border) !important;
+    padding: 4px 8px !important;
+}
+
+body.fatex-dark-mode .fatex-headline--chat:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-header) !important;
+    border: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    position: relative !important;
+    padding: 10px 5px !important; 
+    min-height: 32px !important; 
+    align-items: center !important;
+}
+
+body.fatex-dark-mode .fatex-headline--chat .fatex-headline__text:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: #ffffff !important;
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-headline--chat .fatex-headline__icon:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    position: absolute !important;
+    right: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: auto !important;
+    margin: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-headline--chat:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    border-top-color: var(--fx-dark-bg-app) !important;
+}
+
+body.fatex-dark-mode .fatex-headline--chat:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after {
+    border-bottom-color: var(--fx-dark-bg-app) !important;
+}
+
+body.fatex-dark-mode .fatex-item-card:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-app) !important;
+    border: 1px solid var(--fx-dark-border) !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .fatex-rollWrapper:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    padding: 5px !important;
+    background: var(--fx-dark-bg-app) !important; 
+    background-image: none !important;
+    border: 1px solid var(--fx-dark-border) !important;
+    border-top: none !important;
+    border-radius: 0 0 4px 4px !important;
+}
+
+body.fatex-dark-mode .fatex-roll:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important; 
+    border: none !important; 
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+body.fatex-dark-mode .fatex-chat:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-roll__total:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(255,255,255,0.1) !important;
+}
+
+body.fatex-dark-mode .fatex-roll__ladder:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-muted) !important;
+}
+
+body.fatex-dark-mode .fatex-dice:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important; 
+    color: #ffffff !important;
+    border-radius: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-dice div:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: #ffffff !important;
+}
+
+body.fatex-dark-mode #chat-form textarea:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-input) !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-muted) !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.2s !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:hover:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+    text-shadow: 0 0 5px rgba(255,255,255,0.1) !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-accent) !important;
+    border-bottom-color: var(--fx-dark-accent) !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    position: relative !important;
+    z-index: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: visible !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex-tabs-navigation__item.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after {
+    display: none !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: var(--fx-dark-bg-glass) !important;
+    z-index: -1 !important;
+    
+    clip-path: polygon(
+        8px 0, 
+        100% 0, 
+        100% calc(100% - 8px), 
+        calc(100% - 8px) 100%, 
+        0 100%, 
+        0 8px
+    ) !important;
+    
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item:hover:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a:hover:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    opacity: 1 !important;
+}
+
+body.fatex-dark-mode .fatex-tabs-navigation__item.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before,
+body.fatex-dark-mode .fatex__actor_group__sheet__navigation a.active:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    background: var(--fx-dark-bg-header) !important;
+    opacity: 1 !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: transparent !important; 
+    border: none !important;
+    margin-bottom: 8px !important;
+    padding: 2px 5px !important;
+    position: relative;
+    z-index: 0 !important; 
+    overflow: visible !important; 
+    clip-path: none !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before,
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--fx-dark-bg-header) !important;
+    z-index: -1 !important; 
+    
+    clip-path: polygon(
+        16px 0, 
+        100% 0, 
+        100% calc(100% - 16px), 
+        calc(100% - 16px) 100%, 
+        0 100%, 
+        0 16px
+    ) !important;
+    
+    border: none !important;
+}
+
+body.fatex-dark-mode .fatex-headline:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after,
+body.fatex-dark-mode .fatex-section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *))::after {
+    display: none !important;
+}
+
+body.fatex-dark-mode .fatex-headline__text:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-section-heading h2:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+    margin: 0 !important;
+    padding-left: 25px !important; 
+    padding-right: 0 !important;
+}
+
+body.fatex-dark-mode .fatex-headline__icon:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    z-index: 100 !important;
+    opacity: 1 !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .fatex-headline__icon:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    transform: none !important; 
+    z-index: 100 !important;
+    display: block !important;
+    opacity: 1 !important;
+    right: auto !important;
+    left: 100% !important; 
+    margin-left: -25px !important;
+}
+
+body.fatex-dark-mode .dialog .dialog-content:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-app) !important;
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .dialog .dialog-buttons button:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-element) !important;
+    border: 1px solid var(--fx-dark-border) !important;
+}
+
+body.fatex-dark-mode .editor-content:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode .editor-menu:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-panel) !important;
+    border-bottom: 1px solid var(--fx-dark-border) !important;
+}
+
+body.fatex-dark-mode .fatex-js-edit-mode .fatex-actions--section-heading:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: linear-gradient(90deg, transparent 0%, var(--fx-dark-bg-glass) 33%, var(--fx-dark-bg-glass) 100%) !important;
+}
+
+body.fatex-dark-mode .fatex-js-edit-mode .fatex-actions--item:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: linear-gradient(90deg, transparent 0%, var(--fx-dark-bg-glass) 33%, var(--fx-dark-bg-glass) 100%) !important;
+}
+
+body.fatex-dark-mode .fatex-headline__icon--skill:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    left: 13px !important;
+    right: auto !important;
+    top: -4px !important;
+    transform: none !important;
+    padding: 0 !important;
+    z-index: 100 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    position: absolute !important;
+}
+
+body.fatex-dark-mode .fatex-scene-aspects .fatex-scene-aspect.drag-left:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-scene-aspects .fatex-scene-aspect.drag-right:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-scene-aspects .fatex-aspect-group.drag-left:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-scene-aspects .fatex-aspect-group.drag-right:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    border-color: rgba(255, 255, 255, 0.1) !important; 
+    --color-shadow-primary: #ffffff;
+}
+
+body.fatex-dark-mode .fatex-cost-description:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+}
+
+body.fatex-dark-mode select:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+body.fatex-dark-mode option:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    background: var(--fx-dark-bg-panel) !important;
+    color: var(--fx-dark-text-main) !important;
+}

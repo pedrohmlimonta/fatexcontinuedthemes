@@ -1,8 +1,8 @@
 {
   "id": "fatexcontinued-themes",
-  "title": "FateX Continued Themes — Fichas Visuais e Iniciativa por Perícia",
-  "description": "Temas visuais para as fichas do FateX Continued sem alterar a mecânica (Blue Lock, A.E.G.I.S, Jujutsu Kaisen e suporte fácil para criar novos), com tema global do mundo e tema individual por ficha, e iniciativa rolada com uma perícia configurável (4dF + perícia + bônus). Reúne os antigos fatex-themes e fatex-initiative-skill.",
-  "version": "0.0.3",
+  "title": "FateX Continued Themes — Temas, Iniciativa e Extras",
+  "description": "Complementos para o FateX Continued: temas visuais para as fichas e para o chat (Blue Lock, A.E.G.I.S, Jujutsu Kaisen e fácil de criar novos), iniciativa rolada com uma perícia (4dF + perícia + bônus) e os recursos do FateX Extras — Gerenciador de Aspectos de cena, pagamento de custo no +2/rolar de novo, +1/−1 do GM, invocações grátis nas fichas, nova sessão, modo escuro e dado de ponto de destino para o Dice So Nice. Reúne os antigos fatex-themes, fatex-initiative-skill e fatex-extras.",
+  "version": "0.0.4",
   "compatibility": {
     "minimum": "14",
     "verified": "14.368"
@@ -11,6 +11,11 @@
     {
       "name": "Pedro (pedrohmlimonta)",
       "url": "https://github.com/pedrohmlimonta"
+    },
+    {
+      "name": "shrade (FateX Extras)",
+      "url": "https://github.com/shradee/FateX-Extras",
+      "discord": "shrade_himself"
     }
   ],
   "relationships": {
@@ -26,12 +31,15 @@
   },
   "esmodules": [
     "scripts/init.js",
-    "scripts/initiative.js"
+    "scripts/initiative.js",
+    "scripts/extras/main.js"
   ],
   "styles": [
     "styles/themes.css",
     "styles/chat.css",
-    "styles/initiative.css"
+    "styles/initiative.css",
+    "styles/extras.css",
+    "styles/extras-dark-mode.css"
   ],
   "languages": [
     {
@@ -43,6 +51,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json"
     }
   ],
   "license": "LICENSE",

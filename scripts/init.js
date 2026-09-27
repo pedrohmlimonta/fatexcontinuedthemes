@@ -131,6 +131,8 @@ Hooks.on("renderActorSheet", (sheet, html, data) => {
     if (cls.startsWith("theme-")) form.classList.remove(cls);
   }
   form.classList.add(`theme-${effectiveTheme}`);
+  // Ficha com tema próprio: o modo escuro dos extras não mexe nela
+  form.classList.toggle("fatex-themed", effectiveTheme !== "default");
 
   // Aplica a classe no app element também (pra pegar o header da janela)
   const appEl = toElement(sheet.element);
@@ -139,6 +141,7 @@ Hooks.on("renderActorSheet", (sheet, html, data) => {
       if (cls.startsWith("theme-")) appEl.classList.remove(cls);
     }
     appEl.classList.add(`theme-${effectiveTheme}`);
+    appEl.classList.toggle("fatex-themed", effectiveTheme !== "default");
   }
 
   if (canChangeTheme(actor)) injectThemeButton(sheet, actor);
