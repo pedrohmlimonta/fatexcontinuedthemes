@@ -24,5 +24,36 @@
   "FATEX_THEMES.Settings.AllowPlayer.Hint": "Se desligado (padrão), apenas o GM vê o botão de troca de tema.",
 
   "FATEX_THEMES.Settings.CollapseHeader.Name": "Colapsar botões do cabeçalho em um menu (☰)",
-  "FATEX_THEMES.Settings.CollapseHeader.Hint": "Esconde os botões 'Modo de Edição', 'Configuração da Ficha', 'Theatre' etc. em um menu suspenso, economizando espaço no topo da ficha. O botão de fechar permanece visível."
+  "FATEX_THEMES.Settings.CollapseHeader.Hint": "Esconde os botões 'Modo de Edição', 'Configuração da Ficha', 'Theatre' etc. em um menu suspenso, economizando espaço no topo da ficha. O botão de fechar permanece visível.",
+
+  "FATEX_INIT.ButtonLabel": "Iniciativa",
+  "FATEX_INIT.Tooltip": "Configurar perícia e bônus de iniciativa para esta ficha",
+
+  "FATEX_INIT.DialogTitle": "Iniciativa",
+  "FATEX_INIT.DialogHint": "A iniciativa será rolada como: 4dF + perícia + bônus. Funciona automaticamente com o Carousel Combat Tracker e o tracker padrão.",
+
+  "FATEX_INIT.CurrentStatus": "Status atual",
+  "FATEX_INIT.Status.UsingGlobal": "Usando perícia GLOBAL: <em>{skill}</em>",
+  "FATEX_INIT.Status.HasOverride": "Perícia INDIVIDUAL definida: <em>{skill}</em>",
+  "FATEX_INIT.Status.NoGlobal": "Nenhuma perícia global configurada e nenhum override individual. A iniciativa usará a fórmula padrão do sistema.",
+
+  "FATEX_INIT.UseGlobalOption": "Usar perícia global (atualmente: {skill})",
+  "FATEX_INIT.UseGlobalOptionEmpty": "Usar perícia global (nenhuma configurada — fórmula padrão)",
+  "FATEX_INIT.NoSkills": "Esta ficha não tem perícias cadastradas",
+
+  "FATEX_INIT.SkillLabel": "Perícia desta ficha:",
+  "FATEX_INIT.BonusLabel": "Bônus numérico:",
+  "FATEX_INIT.BonusHint": "Valor fixo somado à rolagem (pode ser negativo). Útil para situações como vantagem por surpresa, equipamento, etc.",
+
+  "FATEX_INIT.Save": "Salvar",
+  "FATEX_INIT.Cancel": "Cancelar",
+
+  "FATEX_INIT.Notif.Saved": "Configuração de iniciativa salva.",
+  "FATEX_INIT.Notif.SkillNotFound": "Iniciativa: perícia \"{skill}\" não encontrada na ficha \"{actor}\". Rolando com rank 0.",
+
+  "FATEX_INIT.Settings.GlobalSkill.Name": "Perícia global de iniciativa",
+  "FATEX_INIT.Settings.GlobalSkill.Hint": "Nome da perícia (Skill) usada como padrão para iniciativa. Aplica-se a toda ficha que NÃO tiver um override individual. Deixe em branco para usar a fórmula padrão do Foundry.",
+
+  "FATEX_INIT.Settings.AllowPlayer.Name": "Permitir que jogadores configurem iniciativa nas próprias fichas",
+  "FATEX_INIT.Settings.AllowPlayer.Hint": "Se desligado (padrão), apenas o GM pode trocar perícia e bônus. Se ligado, jogadores podem configurar suas próprias fichas."
 }

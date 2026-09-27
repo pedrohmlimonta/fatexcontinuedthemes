@@ -1,7 +1,8 @@
 /**
- * FateX Continued Themes
+ * FateX Continued Themes — Temas visuais
  *
  * Continuação do "fatex-themes" para o sistema FateX Continued (fatexcontinued) no Foundry VTT v14.
+ * A iniciativa por perícia (antigo "fatex-initiative-skill") fica em scripts/initiative.js.
  *
  * Features:
  *  - Tema global do mundo + tema individual por ficha (override)
@@ -55,7 +56,7 @@ function getIndividualTheme(actor) {
 
 function legacyDataMigrated() {
   try {
-    return !!game.settings.get(MODULE_ID, "legacyMigrated");
+    return !!game.settings.get(MODULE_ID, "legacyThemesMigrated");
   } catch (err) {
     return true;
   }
@@ -104,7 +105,7 @@ Hooks.once("init", () => {
   });
 
   // Interno: indica se os dados do antigo "fatex-themes" já foram copiados para este módulo
-  game.settings.register(MODULE_ID, "legacyMigrated", {
+  game.settings.register(MODULE_ID, "legacyThemesMigrated", {
     scope: "world", config: false, type: Boolean, default: false
   });
 });
@@ -366,7 +367,7 @@ async function migrateLegacyData() {
     }
   }
 
-  await game.settings.set(MODULE_ID, "legacyMigrated", true);
+  await game.settings.set(MODULE_ID, "legacyThemesMigrated", true);
   console.log(`${MODULE_ID} | Temas do antigo "${LEGACY_MODULE_ID}" migrados`);
 }
 
@@ -390,7 +391,9 @@ async function migrateLegacyClientSettings() {
 /* ====================================================================== */
 
 Hooks.once("ready", () => {
-  game.modules.get(MODULE_ID).api = {
+  // A iniciativa (scripts/initiative.js) acrescenta as funções dela neste mesmo objeto
+  const module = game.modules.get(MODULE_ID);
+  module.api = Object.assign(module.api ?? {}, {
     setIndividualTheme: async (actor, themeId) => {
       if (themeId === null) await actor.unsetFlag(MODULE_ID, FLAG_THEME);
       else if (themeExists(themeId)) await actor.setFlag(MODULE_ID, FLAG_THEME, themeId);
@@ -406,7 +409,7 @@ Hooks.once("ready", () => {
       return true;
     },
     listThemes: () => [...AVAILABLE_THEMES]
-  };
+  });
   console.log(`${MODULE_ID} | v${moduleVersion()} pronto`);
 });
 

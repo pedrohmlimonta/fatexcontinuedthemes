@@ -103,7 +103,8 @@ Quando você publicar uma versão nova, o Foundry mostra a atualização em **Ad
 
 ## 5. Próximas atualizações
 
-1. Edite `scripts/init.js`, `styles/themes.css`, os idiomas em `lang/` ou as imagens em `assets/`.
+1. Edite os scripts em `scripts/` (temas em `init.js`, iniciativa em `initiative.js`), os estilos em `styles/`, os
+   idiomas em `lang/` ou as imagens em `assets/`.
 2. Para testar localmente, copie a pasta para `Data/modules/fatexcontinued-themes` do seu Foundry e recarregue
    com F5.
 3. Atualize o `CHANGELOG.md` (e, se quiser, o `"version"` do `module.json` — a Action sobrescreve com a tag).

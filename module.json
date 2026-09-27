@@ -1,7 +1,7 @@
 {
   "id": "fatexcontinued-themes",
-  "title": "FateX Continued Themes — Fichas Visuais Customizadas",
-  "description": "Permite escolher diferentes layouts visuais para as fichas do FateX Continued sem alterar a mecânica. Inclui temas prontos (Blue Lock, A.E.G.I.S e Jujutsu Kaisen), tema global do mundo com tema individual por ficha e suporte fácil para criar novos.",
+  "title": "FateX Continued Themes — Fichas Visuais e Iniciativa por Perícia",
+  "description": "Temas visuais para as fichas do FateX Continued sem alterar a mecânica (Blue Lock, A.E.G.I.S, Jujutsu Kaisen e suporte fácil para criar novos), com tema global do mundo e tema individual por ficha, e iniciativa rolada com uma perícia configurável (4dF + perícia + bônus). Reúne os antigos fatex-themes e fatex-initiative-skill.",
   "version": "2.0.0",
   "compatibility": {
     "minimum": "14",
@@ -25,10 +25,12 @@
     ]
   },
   "esmodules": [
-    "scripts/init.js"
+    "scripts/init.js",
+    "scripts/initiative.js"
   ],
   "styles": [
-    "styles/themes.css"
+    "styles/themes.css",
+    "styles/initiative.css"
   ],
   "languages": [
     {

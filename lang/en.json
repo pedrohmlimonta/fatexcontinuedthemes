@@ -24,5 +24,36 @@
   "FATEX_THEMES.Settings.AllowPlayer.Hint": "If disabled (default), only the GM sees the theme picker button.",
 
   "FATEX_THEMES.Settings.CollapseHeader.Name": "Collapse header buttons into a menu (☰)",
-  "FATEX_THEMES.Settings.CollapseHeader.Hint": "Hides 'Edit Mode', 'Sheet Configuration', 'Theatre', etc. inside a dropdown menu to save space at the top of the sheet. The close button remains visible."
+  "FATEX_THEMES.Settings.CollapseHeader.Hint": "Hides 'Edit Mode', 'Sheet Configuration', 'Theatre', etc. inside a dropdown menu to save space at the top of the sheet. The close button remains visible.",
+
+  "FATEX_INIT.ButtonLabel": "Initiative",
+  "FATEX_INIT.Tooltip": "Configure the initiative skill and bonus for this sheet",
+
+  "FATEX_INIT.DialogTitle": "Initiative",
+  "FATEX_INIT.DialogHint": "Initiative will be rolled as: 4dF + skill + bonus. Works automatically with the Carousel Combat Tracker and the default tracker.",
+
+  "FATEX_INIT.CurrentStatus": "Current status",
+  "FATEX_INIT.Status.UsingGlobal": "Using GLOBAL skill: <em>{skill}</em>",
+  "FATEX_INIT.Status.HasOverride": "INDIVIDUAL skill set: <em>{skill}</em>",
+  "FATEX_INIT.Status.NoGlobal": "No global skill set and no individual override. Initiative will use the system's default formula.",
+
+  "FATEX_INIT.UseGlobalOption": "Use global skill (currently: {skill})",
+  "FATEX_INIT.UseGlobalOptionEmpty": "Use global skill (none set — default formula)",
+  "FATEX_INIT.NoSkills": "This sheet has no skills",
+
+  "FATEX_INIT.SkillLabel": "Skill for this sheet:",
+  "FATEX_INIT.BonusLabel": "Numeric bonus:",
+  "FATEX_INIT.BonusHint": "Fixed value added to the roll (can be negative). Useful for situations like surprise advantage, gear, etc.",
+
+  "FATEX_INIT.Save": "Save",
+  "FATEX_INIT.Cancel": "Cancel",
+
+  "FATEX_INIT.Notif.Saved": "Initiative configuration saved.",
+  "FATEX_INIT.Notif.SkillNotFound": "Initiative: skill \"{skill}\" not found on sheet \"{actor}\". Rolling with rank 0.",
+
+  "FATEX_INIT.Settings.GlobalSkill.Name": "Global initiative skill",
+  "FATEX_INIT.Settings.GlobalSkill.Hint": "Name of the skill used as default for initiative. Applies to every sheet without an individual override. Leave empty to use Foundry's default formula.",
+
+  "FATEX_INIT.Settings.AllowPlayer.Name": "Allow players to configure initiative on their own sheets",
+  "FATEX_INIT.Settings.AllowPlayer.Hint": "If disabled (default), only the GM can change skill and bonus. If enabled, players can configure their own sheets."
 }

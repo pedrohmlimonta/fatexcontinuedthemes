@@ -1,0 +1,33 @@
+/* ======================================================================
+   FateX Continued Themes — Iniciativa por perícia (antigo fatex-initiative-skill)
+   ====================================================================== */
+
+/* Botão de configuração de iniciativa no header da ficha */
+.fatex-init-button {
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.15s ease;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.fatex-init-button:hover {
+  opacity: 1;
+  text-shadow: 0 0 6px currentColor;
+}
+
+/* Form do diálogo */
+.fatex-init-config .form-group {
+  margin-bottom: 12px;
+}
+
+.fatex-init-config label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.fatex-init-config input[type="number"] {
+  text-align: center;
+  font-size: 14px;
+}
