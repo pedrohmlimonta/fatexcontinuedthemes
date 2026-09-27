@@ -56,8 +56,9 @@ façanhas e tudo mais continuam funcionando normalmente. Só muda a aparência.
 | Jujutsu Kaisen: Abel | `assets/logos/jujutsulogo.png`, `assets/backgrounds/abel.gif` |
 | Jujutsu Kaisen: Everin | `assets/logos/jujutsulogo.png`, `assets/backgrounds/everinbg.gif` |
 
-As imagens ficam na pasta `assets/` do repositório e vão dentro do zip da release. A publicação confere se todas
-as imagens usadas pelo CSS existem e falha, listando as que faltam, caso alguma não esteja no repositório.
+As imagens ficam na pasta `assets/` do repositório e vão dentro do zip da release. Se alguma imagem usada pelo CSS
+não estiver no repositório, a publicação funciona do mesmo jeito, mas mostra um aviso listando as que faltam — e
+esses temas aparecem sem elas até você incluí-las numa nova versão.
 
 ### Criando seu próprio tema
 

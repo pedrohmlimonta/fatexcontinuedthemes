@@ -17,8 +17,9 @@ em `Data/modules` e o que as macros usam). Os dois não precisam ser iguais.
 ## 0. Colocar as imagens dos temas no repositório
 
 O zip do módulo que serviu de base **não tinha a pasta `assets`**, e o CSS dos temas A.E.G.I.S e Jujutsu Kaisen usa
-imagens de lá. Enquanto alguma delas faltar, o CI e a publicação **falham de propósito** ("Process completed with
-exit code 1") e listam o que falta — assim uma versão sem imagens nunca chega aos jogadores.
+imagens de lá. Sem elas, o módulo funciona e pode ser publicado normalmente, mas esses temas aparecem sem os fundos
+e logos — o CI e a release mostram um aviso amarelo **"Imagens faltando"** (em **Annotations**) com a lista do que
+falta. Quando você colocar as imagens, publique uma nova versão para elas chegarem aos jogadores.
 
 Arquivos esperados (mesmos nomes, **em minúsculas**, mesmas subpastas):
 
@@ -78,8 +79,9 @@ git push -u origin main
 > `.github/workflows`. Gere um token com o escopo **workflow** (GitHub → Settings → Developer settings → Personal
 > access tokens) ou envie pelo GitHub Desktop.
 
-Depois do push, a aba **Actions** mostra o workflow **CI**. Verde = tudo certo. Vermelho = abra o run: o motivo
-aparece em **Annotations** (normalmente as imagens do passo 0).
+Depois do push, a aba **Actions** mostra o workflow **CI**. Verde = tudo certo (um aviso amarelo de "Imagens
+faltando" não impede nada, só lista as imagens do passo 0 que ainda não estão no repositório). Vermelho = abra o
+run: o motivo aparece em **Annotations**.
 
 ## 3. Publicar uma versão
 
@@ -125,7 +127,8 @@ Quando você publicar uma versão nova, o Foundry mostra a atualização em **Ad
 
 | Sintoma | Causa provável |
 | --- | --- |
-| CI ou Release com "Process completed with exit code 1" | Abra o run na aba **Actions**: a lista do que falta aparece em **Annotations**. Quase sempre são as imagens do passo 0. |
+| CI ou Release com "Process completed with exit code 1" | Abra o run na aba **Actions**: o motivo aparece em **Annotations** (erro de sintaxe num script, arquivo citado no `module.json` que não existe etc.). |
+| Aviso amarelo "Imagens faltando" | Faltam imagens do passo 0 em `assets/`. A versão é publicada, mas esses temas aparecem sem elas. |
 | A release foi publicada mas ficou sem os arquivos em **Assets** | O run **Release** falhou. Corrija e dê push, apague a release **e a tag** (em **Releases** e em **Tags**) e publique de novo — reexecutar o run antigo não adianta, porque ele usa o código da tag. |
 | O link do manifesto dá 404 | A release ainda não terminou, foi salva como rascunho/pre-release, ficou sem os arquivos ou o repositório está privado. |
 | Run **Release** falhou em "Atualizar versão e URLs" | A tag não é uma versão `X.Y.Z`. Apague a release e a tag e crie de novo. |

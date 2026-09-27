@@ -4,11 +4,13 @@
  * Uso: node .github/scripts/check.mjs [pasta]
  *   pasta — raiz do módulo a conferir (padrão: pasta atual). Na release também é usada no conteúdo do zip.
  *
- * Confere:
- *   - module.json válido e com os campos essenciais;
- *   - todos os arquivos citados no module.json existem (scripts, estilos, idiomas, licença);
- *   - sintaxe dos scripts (carregados pelo Foundry como módulos ES) e dos arquivos de idioma;
- *   - todas as imagens/fontes locais usadas nos url(...) do CSS existem.
+ * Erros (bloqueiam a publicação):
+ *   - module.json inválido ou sem os campos essenciais;
+ *   - arquivo citado no module.json que não existe (scripts, estilos, idiomas, licença);
+ *   - erro de sintaxe nos scripts (carregados pelo Foundry como módulos ES) ou nos arquivos de idioma.
+ *
+ * Avisos (não bloqueiam — o tema só aparece sem a imagem):
+ *   - imagens/fontes locais usadas nos url(...) do CSS que não estão no módulo.
  */
 import fs from "node:fs";
 import os from "node:os";
@@ -17,6 +19,7 @@ import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.argv[2] ?? ".");
 const errors = [];
+const warnings = [];
 
 const abs = (file) => path.join(root, file);
 const rel = (file) => path.relative(root, file).split(path.sep).join("/");
@@ -31,21 +34,30 @@ function readJSON(file) {
   }
 }
 
+/** No GitHub Actions, avisos e erros também viram anotações, exibidas no resumo do run */
+function annotate(level, title, text) {
+  if (process.env.GITHUB_ACTIONS !== "true") return;
+  const message = text.replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A");
+  console.log(`::${level} title=${title}::${message}`);
+}
+
 function finish(manifest) {
+  for (const warning of warnings) {
+    console.warn(`⚠ ${warning}\n`);
+    annotate("warning", "Imagens faltando", warning);
+  }
   if (errors.length) {
     console.error(`✖ ${errors.length} problema(s) encontrado(s) em ${root}:\n`);
-    for (const error of errors) console.error(`• ${error}\n`);
-    // No GitHub Actions, cada problema também vira uma anotação, exibida no resumo do run
-    // (em vez de só "Process completed with exit code 1")
-    if (process.env.GITHUB_ACTIONS === "true") {
-      for (const error of errors) {
-        const message = error.replaceAll("%", "%25").replaceAll("\r", "%0D").replaceAll("\n", "%0A");
-        console.log(`::error title=Conferência do módulo::${message}`);
-      }
+    for (const error of errors) {
+      console.error(`• ${error}\n`);
+      annotate("error", "Conferência do módulo", error);
     }
     process.exit(1);
   }
-  console.log(`✔ ${manifest.id} ${manifest.version}: manifesto, scripts, idiomas e arquivos usados pelo CSS conferidos.`);
+  const summary = warnings.length
+    ? `manifesto, scripts e idiomas conferidos (${warnings.length} aviso(s) acima)`
+    : "manifesto, scripts, idiomas e imagens do CSS conferidos";
+  console.log(`✔ ${manifest.id} ${manifest.version}: ${summary}.`);
 }
 
 /* ---------------------------------------------------------------- */
@@ -136,10 +148,11 @@ if (missing.size) {
   const list = [...missing]
     .map(([file, themes]) => `    - ${file}${themes.size ? `  (tema: ${[...themes].join(", ")})` : ""}`)
     .join("\n");
-  errors.push(
-    `${missing.size} arquivo(s) usado(s) pelo CSS não existe(m) no módulo:\n${list}\n` +
-      `  Copie esses arquivos para as pastas indicadas (ex.: da pasta assets do módulo "fatex-themes" instalado no ` +
-      `seu Foundry) ou remova as referências do CSS.`,
+  warnings.push(
+    `${missing.size} arquivo(s) usado(s) pelo CSS ainda não está(ão) no módulo — esses temas vão aparecer sem ` +
+      `essas imagens:\n${list}\n` +
+      `  Para incluir, copie os arquivos para as pastas indicadas (ex.: da pasta assets do módulo "fatex-themes" ` +
+      `instalado no seu Foundry) e publique uma nova versão.`,
   );
 }
 
