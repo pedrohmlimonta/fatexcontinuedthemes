@@ -59,9 +59,32 @@ export class RollModifiers {
     await RollModifiers.applyModifier(message, rollIndex, amount);
   }
 
-  /** Quem paga o custo: o personagem do usuário ou, sem ele, quem fez a rolagem */
-  static getPayingActor(message) {
-    return game.user.character ?? message.speakerActor ?? game.actors.get(message.speaker?.actor) ?? null;
+  /**
+   * Quem paga o custo: o personagem da ficha que fez a rolagem (guardado na própria rolagem, inclusive tokens não
+   * vinculados). Sem ele (cartas antigas ou personagem apagado): quem falou na mensagem e, por último, o personagem
+   * do usuário.
+   */
+  static getPayingActor(message, rollIndex = 0) {
+    const card = getChatCard(message);
+    const options = (card?.rolls?.[rollIndex] ?? card?.rolls?.[0])?.options ?? {};
+    const fromUuidSync = foundry.utils.fromUuidSync ?? globalThis.fromUuidSync;
+
+    let actor = null;
+    if (options.actorUuid && fromUuidSync) {
+      try {
+        const found = fromUuidSync(options.actorUuid, { strict: false });
+        if (found?.documentName === "Actor") actor = found;
+      } catch (err) {
+        actor = null;
+      }
+    }
+
+    return actor
+      ?? (options.actorId ? game.actors.get(options.actorId) : null)
+      ?? message.speakerActor
+      ?? game.actors.get(message.speaker?.actor)
+      ?? game.user.character
+      ?? null;
   }
 
   static async _payBeforeAction(event, message) {
@@ -73,7 +96,8 @@ export class RollModifiers {
     event.stopPropagation();
     event.stopImmediatePropagation();
 
-    const proceed = await CostDialog.create(RollModifiers.getPayingActor(message));
+    const rollIndex = Number(button.closest(".fatex-chat__roll")?.dataset.rollIndex) || 0;
+    const proceed = await CostDialog.create(RollModifiers.getPayingActor(message, rollIndex));
     if (!proceed) return;
 
     // Repete o clique já pago: agora ele segue para o sistema, que aplica o +2 ou rola de novo

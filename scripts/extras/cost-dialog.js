@@ -7,6 +7,7 @@ import { AspectStorage } from "./aspect-storage.js";
  */
 export class CostDialog {
   /**
+   * @param {Actor|null} actor  Personagem da ficha que fez a rolagem: os pontos de destino são dele
    * @returns {Promise<boolean>} true para seguir com a ação, false se cancelou
    */
   static async create(actor) {
@@ -73,6 +74,7 @@ export class CostDialog {
     const defaultChoice = canPayFatePoint ? "fatepoint" : hasAspects ? "aspect" : "free";
 
     const content = await foundry.applications.handlebars.renderTemplate(`${TEMPLATES_PATH}/cost-dialog.hbs`, {
+      actorName: actor?.name ?? "",
       fatePoints,
       canPayFatePoint,
       aspects: availableOptions,
