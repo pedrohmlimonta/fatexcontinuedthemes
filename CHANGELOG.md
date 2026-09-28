@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.5
+
+- **"Pagar custo" ligado à ficha que rolou:** o ponto de destino gasto no diálogo agora sai do personagem que fez a
+  rolagem (inclusive de tokens não vinculados), e o diálogo mostra o nome dele e os pontos atuais. Antes o módulo
+  dava preferência ao personagem atribuído ao usuário — se ele fosse outro (ou não tivesse pontos), o diálogo
+  mostrava "Atual: 0" e não deixava pagar com a ficha que rolou.
+- **"Pagar custo" legível:** o texto do diálogo agora é branco sobre um fundo escuro. Antes ele ficava escuro sobre o
+  fundo escuro das janelas do Foundry v14 e quase não dava para ler as opções (gastar ponto de destino, usar
+  invocação grátis, sem custo). Continua legível também para quem usa o tema claro do Foundry.
+
 ## 0.0.4
 
 - **FateX Extras incorporado ao módulo.** Os recursos do módulo `fatex-extras` 1.1.0, de **shrade**, agora fazem

@@ -482,11 +482,15 @@
 
 /* ----------------------------------------------------------------------
    Diálogo "Pagar custo" (antes ficava num <style> dentro do diálogo, o que
-   afetava o cabeçalho das fichas abertas enquanto o diálogo estava aberto)
+   afetava o cabeçalho das fichas abertas enquanto o diálogo estava aberto).
+   Texto branco sobre um painel escuro, legível tanto no tema escuro quanto
+   no tema claro das janelas do Foundry.
    ---------------------------------------------------------------------- */
 .fatex-cost-dialog.fatex-dialog-theme {
     font-family: "Montserrat", sans-serif;
-    color: var(--fatex-primary-text-color, #191813);
+    color: #ffffff;
+    background: rgba(12, 11, 21, 0.92);
+    border-radius: 3px;
 }
 .fatex-cost-dialog {
     padding: 10px;
@@ -496,6 +500,7 @@
     margin-bottom: 15px;
     font-style: italic;
     text-align: center;
+    color: rgba(255, 255, 255, 0.85);
 }
 .fatex-cost-dialog .fatex-cost-options {
     display: flex;
@@ -503,18 +508,18 @@
     gap: 10px;
 }
 .fatex-cost-dialog .fatex-cost-option {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.2s;
 }
 .fatex-cost-dialog .fatex-cost-option:hover:not(.disabled) {
-    background: rgba(0, 0, 0, 0.1);
-    border-color: #2f3542;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 .fatex-cost-dialog .fatex-cost-option.disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 .fatex-cost-dialog .fatex-cost-option label {
@@ -523,21 +528,28 @@
     gap: 10px;
     cursor: pointer;
     width: 100%;
+    color: #ffffff;
 }
 .fatex-cost-dialog .fatex-cost-label {
     font-weight: bold;
     font-size: 1.1em;
+    color: #ffffff;
+}
+.fatex-cost-dialog .fatex-cost-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 .fatex-cost-dialog .fatex-cost-info {
     font-size: 0.9em;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
 }
 .fatex-cost-dialog .fatex-select-custom {
     margin-left: 25px;
     width: calc(100% - 25px);
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.35);
     max-height: 200px;
     margin-top: 5px;
     opacity: 1;
@@ -556,19 +568,21 @@
 .fatex-cost-dialog .fatex-select-option {
     padding: 8px 10px;
     cursor: pointer;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 0.9em;
     line-height: 1.3;
+    color: #ffffff;
 }
 .fatex-cost-dialog .fatex-select-option:last-child {
     border-bottom: none;
 }
 .fatex-cost-dialog .fatex-select-option:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
 }
 .fatex-cost-dialog .fatex-select-option.selected {
-    background: #2f3542;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-weight: bold;
 }
 .fatex-cost-dialog .fatex-header {
     background: #2f3542;
@@ -587,23 +601,6 @@
     border: none;
     color: inherit;
 }
-body.fatex-dark-mode .fatex-cost-dialog .fatex-select-custom {
-    background: rgba(30, 30, 30, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-body.fatex-dark-mode .fatex-cost-dialog .fatex-select-option {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-}
-body.fatex-dark-mode .fatex-cost-dialog .fatex-select-option:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-body.fatex-dark-mode .fatex-cost-dialog .fatex-select-option.selected {
-    background: rgba(47, 53, 66, 0.9);
-    color: #ffffff;
-    font-weight: bold;
-}
-
 /* ----------------------------------------------------------------------
    Ficha: nova sessão e invocações grátis dos aspectos/consequências
    (antes eram estilos escritos direto nos elementos)

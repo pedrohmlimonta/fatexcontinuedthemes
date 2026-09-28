@@ -171,7 +171,8 @@ Foundry v14 e para o FateX Continued.
   e o que aparece na nota ficam nas configurações do módulo.
 - **Pagar custo** — ao clicar em **+2** ou em **rolar de novo** numa carta de rolagem, abre um diálogo para escolher
   como pagar: gastar um ponto de destino, usar uma invocação grátis (de um aspecto de cena ou de um aspecto/consequência
-  de ficha) ou seguir sem custo. Depois de pago, o sistema aplica a ação normalmente.
+  de ficha) ou seguir sem custo. O ponto de destino sai da ficha do personagem que fez a rolagem (o nome dele aparece
+  no diálogo, com os pontos atuais). Depois de pago, o sistema aplica a ação normalmente.
 - **+1 / −1 do GM** — botões extras nas cartas de rolagem, só para o GM, que ajustam o resultado e ficam registrados
   no histórico da rolagem.
 - **Invocações grátis na ficha** — contador nos aspectos e consequências da ficha (quem é dono da ficha ajusta com

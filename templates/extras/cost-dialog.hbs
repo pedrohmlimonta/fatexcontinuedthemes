@@ -9,8 +9,10 @@
         <div class="fatex-cost-option {{#unless canPayFatePoint}}disabled{{/unless}}">
             <label>
                 <input type="radio" name="cost-type" value="fatepoint" {{#unless canPayFatePoint}}disabled{{/unless}} {{#if (eq defaultChoice "fatepoint")}}checked{{/if}}>
-                <span class="fatex-cost-label">{{localize "FAx.CostDialog.PayFatePoint"}}</span>
-                <span class="fatex-cost-info">({{localize "FAx.CostDialog.Current"}}: {{fatePoints}})</span>
+                <span class="fatex-cost-text">
+                    <span class="fatex-cost-label">{{localize "FAx.CostDialog.PayFatePoint"}}</span>
+                    <span class="fatex-cost-info">{{#if actorName}}{{actorName}} · {{/if}}{{localize "FAx.CostDialog.Current"}}: {{fatePoints}}</span>
+                </span>
             </label>
         </div>
 
