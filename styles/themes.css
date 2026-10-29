@@ -738,7 +738,7 @@ label.fatex-header__label {
   position: absolute;
   inset: 0;
   background-image: url("../assets/backgrounds/gojogif.gif");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.1;
@@ -913,7 +913,7 @@ label.fatex-header__label {
   position: absolute;
   inset: 0;
   background-image: url("../assets/backgrounds/sukuna.gif");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.1;

@@ -1,6 +1,14 @@
 # Changelog
 
-## 0.0.5
+## 0.0.7
+
+- Verificado no **Foundry VTT 14.369** (stable atual). As mudanças dessa versão do Foundry não afetam o módulo:
+  temas, iniciativa e extras continuam iguais.
+- Fundos animados dos temas Jujutsu Kaisen — Gojo e Sukuna passam a cobrir a ficha inteira (`background-size: cover`).
+- O FateX Extras (`fatex-extras` 1.1.0, de shrade) continua incorporado desde a 0.0.4; não é preciso instalar o módulo
+  antigo.
+
+## 0.0.5 e 0.0.6
 
 - **"Pagar custo" ligado à ficha que rolou:** o ponto de destino gasto no diálogo agora sai do personagem que fez a
   rolagem (inclusive de tokens não vinculados), e o diálogo mostra o nome dele e os pontos atuais. Antes o módulo

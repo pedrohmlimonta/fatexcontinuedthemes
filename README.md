@@ -15,7 +15,7 @@ atualizados para o Foundry VTT v14 e para o sistema `fatexcontinued`.
 
 ## Requisitos
 
-- Foundry VTT **v14** (verificado na versão 14.368)
+- Foundry VTT **v14** (verificado na versão 14.369)
 - Sistema **FateX Continued 2.0.0** ou superior
 
 ## Instalação
