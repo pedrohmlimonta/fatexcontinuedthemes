@@ -1,0 +1,51 @@
+<div class="fatex-add-combat">
+    <p class="fatex-add-combat__target">
+        <i class="fa-solid {{#if hasCombat}}fa-list-ol{{else}}fa-plus{{/if}}" inert></i>
+        {{target}}
+    </p>
+
+    <div class="fatex-add-combat__toolbar">
+        <input type="search" class="fatex-add-combat__search" autocomplete="off"
+               placeholder="{{localize "FATEX_INIT.AddActors.Search"}}"
+               aria-label="{{localize "FATEX_INIT.AddActors.Search"}}">
+        <label class="fatex-add-combat__all">
+            <input type="checkbox" class="fatex-add-combat__toggle-all">
+            <span>{{localize "FATEX_INIT.AddActors.SelectAll"}}</span>
+        </label>
+    </div>
+
+    <div class="fatex-add-combat__list">
+        {{#each groups}}
+            <section class="fatex-add-combat__group" data-folder-id="{{id}}">
+                <label class="fatex-add-combat__folder">
+                    <input type="checkbox" class="fatex-add-combat__toggle-group">
+                    <i class="fa-solid {{#if id}}fa-folder-open{{else}}fa-user-group{{/if}}" inert></i>
+                    <span>{{label}}</span>
+                </label>
+                <ul class="fatex-add-combat__actors">
+                    {{#each actors}}
+                        <li class="fatex-add-combat__actor{{#if inCombat}} is-in-combat{{/if}}" data-search="{{search}}">
+                            <label>
+                                <input type="checkbox" name="actorIds" value="{{id}}"{{#if inCombat}} disabled{{/if}}>
+                                <img src="{{img}}" alt="" loading="lazy">
+                                <span class="fatex-add-combat__name">{{name}}</span>
+                                {{#if isPlayer}}<span class="fatex-add-combat__tag">{{localize "FATEX_INIT.AddActors.Player"}}</span>{{/if}}
+                                {{#if inCombat}}<span class="fatex-add-combat__tag">{{localize "FATEX_INIT.AddActors.InCombat"}}</span>{{/if}}
+                            </label>
+                        </li>
+                    {{/each}}
+                </ul>
+            </section>
+        {{/each}}
+
+        <p class="fatex-add-combat__empty" role="status" data-no-matches="{{localize "FATEX_INIT.AddActors.NoMatches"}}">{{#unless groups.length}}{{localize "FATEX_INIT.AddActors.Empty"}}{{/unless}}</p>
+    </div>
+
+    <label class="fatex-add-combat__option">
+        <input type="checkbox" class="fatex-add-combat__hidden">
+        <i class="fa-solid fa-eye-slash" inert></i>
+        <span>{{localize "FATEX_INIT.AddActors.Hidden"}}</span>
+    </label>
+
+    <p class="fatex-add-combat__hint">{{localize "FATEX_INIT.AddActors.Hint"}}</p>
+</div>

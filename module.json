@@ -1,8 +1,8 @@
 {
   "id": "fatexcontinued-themes",
   "title": "FateX Continued Themes — Temas, Iniciativa e Extras",
-  "description": "Complementos para o FateX Continued: temas visuais para as fichas e para o chat (Blue Lock, A.E.G.I.S, Jujutsu Kaisen e fácil de criar novos), iniciativa rolada com uma perícia (4dF + perícia + bônus) e os recursos do FateX Extras — Gerenciador de Aspectos de cena, pagamento de custo no +2/rolar de novo, +1/−1 do GM, invocações grátis nas fichas, nova sessão, modo escuro e dado de ponto de destino para o Dice So Nice. Reúne os antigos fatex-themes, fatex-initiative-skill e fatex-extras.",
-  "version": "0.0.7",
+  "description": "Complementos para o FateX Continued: temas visuais para as fichas e para o chat (Blue Lock, A.E.G.I.S, Jujutsu Kaisen e fácil de criar novos), iniciativa rolada com uma perícia (4dF + perícia + bônus), personagens adicionados à iniciativa sem precisar de token no mapa e os recursos do FateX Extras — Gerenciador de Aspectos de cena, pagamento de custo no +2/rolar de novo, +1/−1 do GM, invocações grátis nas fichas, nova sessão, modo escuro e dado de ponto de destino para o Dice So Nice. Reúne os antigos fatex-themes, fatex-initiative-skill e fatex-extras.",
+  "version": "0.0.8",
   "compatibility": {
     "minimum": "14",
     "verified": "14.369"
@@ -32,6 +32,7 @@
   "esmodules": [
     "scripts/init.js",
     "scripts/initiative.js",
+    "scripts/add-to-initiative.js",
     "scripts/extras/main.js"
   ],
   "styles": [

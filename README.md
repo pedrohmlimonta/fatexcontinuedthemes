@@ -147,6 +147,26 @@ libera o botão para os donos das fichas. Uma fórmula explícita (de uma macro,
 Como a interceptação é feita no core do Foundry (`Combatant#getInitiativeRoll`), funciona com o tracker nativo e com
 trackers de outros módulos que usem a rolagem de iniciativa padrão do Foundry.
 
+### Adicionar personagens à iniciativa sem o mapa
+
+Para colocar personagens no combate sem precisar de token no mapa (teatro da mente, ou PdMs que ainda não estão na
+cena):
+
+1. Na aba **Combate** (rastreador de combate), clique no botão **Adicionar personagens à iniciativa**
+   (ícone de pessoa com um +), ao lado de "Rolar todos" e "Rolar PdMs". Só o GM vê esse botão.
+2. Aparece a lista dos personagens do mundo, separados por pasta. Marque quantos quiser — dá para buscar pelo nome,
+   marcar uma pasta inteira ou usar **Marcar todos** (vale para os que a busca está mostrando).
+3. Clique em **Adicionar**: todos entram de uma vez no encontro aberto no rastreador. Se não houver encontro, um novo
+   é criado, como no botão "Criar encontro" do Foundry (sem ficar preso a uma cena).
+
+- Os personagens entram sem token, e a iniciativa rola normalmente (por perícia, como explicado acima), inclusive pelo
+  "Rolar todos" e pelo "Rolar PdMs".
+- Marque **Adicionar ocultos** para que entrem escondidos dos jogadores (numa emboscada, por exemplo). Depois é só
+  revelá-los pelo ícone de olho no rastreador.
+- Quem já está no encontro aparece desativado, marcado como **na iniciativa**, e não entra de novo.
+- Quem tiver um token ligado à ficha na cena em que você está entra por esse token, igual a fazer pelo mapa.
+- Grupos e modelos de ficha não aparecem na lista.
+
 ### Problemas comuns
 
 - **Aviso "perícia não encontrada"** — o nome configurado não bate com nenhuma perícia daquela ficha. Maiúsculas,
@@ -228,6 +248,11 @@ await api.setBonus(actor, 2);                  // 0 remove o bônus
 await api.setGlobalSkill("Velocidade");        // apenas GM
 console.log(api.getEffectiveSkill(actor));     // { skillName: "Drible", bonus: 2, isOverride: true }
 console.log(api.listActorSkills(actor));       // perícias da ficha, com o rank
+
+// ---- Adicionar à iniciativa (apenas GM) ----
+await api.openAddToInitiative();                 // abre a lista de personagens
+await api.addActorsToInitiative([actor, "idDeOutroAtor"]); // adiciona direto ao encontro aberto
+await api.addActorsToInitiative([actor], { hidden: true }); // ...ocultos dos jogadores
 ```
 
 ## Publicação

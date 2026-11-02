@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.8
+
+- **Adicionar personagens à iniciativa sem o mapa:** botão novo no rastreador de combate (só para o GM), ao lado de
+  "Rolar todos" e "Rolar PdMs". Ele abre a lista dos personagens do mundo, separados por pasta, com busca, "Marcar
+  todos" e caixa por pasta; um clique em **Adicionar** coloca todos os marcados no encontro de uma vez, sem precisar
+  de token no mapa. Sem encontro aberto, um novo é criado, como no "Criar encontro" do Foundry. A opção **Adicionar
+  ocultos** os esconde dos jogadores. Quem já está no encontro não entra de novo, e quem tiver um token ligado na cena
+  em que o GM está entra por ele. A iniciativa por perícia vale para eles também.
+- API: `api.openAddToInitiative()` e `api.addActorsToInitiative(atores, { hidden })`.
+
 ## 0.0.7
 
 - Verificado no **Foundry VTT 14.369** (stable atual). As mudanças dessa versão do Foundry não afetam o módulo:

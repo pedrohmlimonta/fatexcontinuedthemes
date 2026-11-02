@@ -31,3 +31,137 @@
   text-align: center;
   font-size: 14px;
 }
+
+/* ----------------------------------------------------------------------
+   Adicionar personagens à iniciativa (sem precisar de token no mapa)
+   Cores herdadas do tema do Foundry (claro ou escuro): só transparências
+   da cor do texto, nada fixo.
+   ---------------------------------------------------------------------- */
+.fatex-add-combat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fatex-add-combat [hidden] {
+  display: none !important;
+}
+
+.fatex-add-combat__target,
+.fatex-add-combat__hint {
+  margin: 0;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+.fatex-add-combat__target i {
+  margin-right: 4px;
+}
+
+.fatex-add-combat__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fatex-add-combat__search {
+  flex: 1;
+  min-width: 0;
+}
+
+.fatex-add-combat__all,
+.fatex-add-combat__folder,
+.fatex-add-combat__actor label,
+.fatex-add-combat__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.fatex-add-combat__all {
+  flex: none;
+  white-space: nowrap;
+}
+
+.fatex-add-combat__option {
+  align-self: flex-start;
+}
+
+.fatex-add-combat__list {
+  max-height: min(55vh, 440px);
+  overflow-y: auto;
+  padding: 4px 6px;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: 4px;
+}
+
+.fatex-add-combat__group + .fatex-add-combat__group {
+  margin-top: 8px;
+}
+
+.fatex-add-combat__folder {
+  padding: 4px 2px;
+  font-weight: bold;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.fatex-add-combat__actors {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+}
+
+.fatex-add-combat__actor label {
+  padding: 3px 4px;
+  border-radius: 3px;
+}
+
+.fatex-add-combat__actor label:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.fatex-add-combat__actor img {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: none;
+  border-radius: 3px;
+}
+
+.fatex-add-combat__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fatex-add-combat__tag {
+  flex: none;
+  padding: 0 6px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-radius: 8px;
+  opacity: 0.8;
+}
+
+.fatex-add-combat__actor.is-in-combat label {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.fatex-add-combat__empty {
+  margin: 8px 0;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Sem aviso: some sem sair da página (continua sendo a região que o leitor de tela acompanha) */
+.fatex-add-combat__empty:empty {
+  margin: 0;
+}
