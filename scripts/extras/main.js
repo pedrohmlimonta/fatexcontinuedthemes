@@ -130,6 +130,18 @@ Hooks.once("init", () => {
     type: Boolean,
     default: false
   });
+
+  // Nome dos pontos de destino (configuração do FateX Continued 2.0.5+): os textos do módulo que falam deles entram
+  // na troca feita pelo sistema. Cada um tem uma versão com {fatePoints} no lugar do nome.
+  const fatePointTexts = CONFIG.FateX?.fatePointTexts;
+  if (fatePointTexts) {
+    Object.assign(fatePointTexts, {
+      "FAx.NewSession.Question": "FAx.NewSession.CustomFatePoints.Question",
+      "FAx.NewSession.Success": "FAx.NewSession.CustomFatePoints.Success",
+      "FAx.NewSession.AlreadyFull": "FAx.NewSession.CustomFatePoints.AlreadyFull",
+      "FAx.CostDialog.PayFatePoint": "FAx.CostDialog.CustomFatePoints.PayFatePoint"
+    });
+  }
 });
 
 RollModifiers.init();
