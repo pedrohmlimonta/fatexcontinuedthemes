@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.9
+
+- Acompanha os **poderes** do FateX Continued 2.0.5 (extras agrupados como façanhas de um poder): a linha que liga
+  as façanhas ao poder, na aba Extras, segue a cor do tema da ficha e fica visível no modo escuro.
+- Modo escuro: a linha do extra na carta de rolagem (poder, nome do extra, bônus e "gastou N pontos de destino")
+  estava na cor escura da carta clara e sumia no fundo; agora fica clara como o resto da carta.
+- Acompanha o **nome dos pontos de destino** do FateX Continued 2.0.5 (configuração do sistema): o botão de nova
+  sessão (pergunta e avisos) e o diálogo "Pagar custo" usam o nome escolhido, como "Gastar 1 de Energia Amaldiçoada".
+  Com o campo vazio, ou com um sistema mais antigo, os textos continuam os de antes.
+
 ## 0.0.8
 
 - **Adicionar personagens à iniciativa sem o mapa:** botão novo no rastreador de combate (só para o GM), ao lado de

@@ -205,6 +205,9 @@ Foundry v14 e para o FateX Continued.
   cartas delas no chat) continuam com o tema.
 - **Dice So Nice** — dado de ponto de destino (sistema "FateX Extras"), usado ao gastar ou recarregar pontos de destino.
 
+Se os pontos de destino tiverem outro nome no FateX Continued (configuração **Nome dos pontos de destino** do
+sistema, 2.0.5 ou mais novo), a nova sessão e o "Pagar custo" usam esse nome também.
+
 Os aspectos de cena ficam guardados num diário escondido, **"Aspectos globais do FateX"**, criado quando o GM entra
 no mundo (ele não aparece na lista de diários e não pode ser excluído).
 

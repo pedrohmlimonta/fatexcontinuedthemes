@@ -49,6 +49,11 @@ section.fatex-item-grid.fatex-u-padding-std {
   padding-top: 0px !important;
 }
 
+/* Poderes do FateX Continued (2.0.5+): a linha que liga as façanhas ao poder, na aba Extras, segue a cor do tema */
+.fatex-themed .fatex-power__stunts {
+  border-left-color: var(--border) !important;
+}
+
 /* ====================================================================== */
 /*  DROPDOWN DO HEADER                                                      */
 /* ====================================================================== */

@@ -407,6 +407,17 @@ body.fatex-dark-mode .fatex-roll__ladder:not(:where(.fatex-themed, .fatex-themed
     color: var(--fx-dark-text-muted) !important;
 }
 
+/* Extra pelo qual a rolagem foi feita (poder, nome, bônus e custo): na cor da carta clara, sumia no fundo escuro */
+body.fatex-dark-mode .fatex-roll__extra:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)),
+body.fatex-dark-mode .fatex-roll__extra-cost:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    color: var(--fx-dark-text-main) !important;
+}
+
+/* Poderes do FateX Continued (2.0.5+): a linha que liga as façanhas ao poder, na aba Extras */
+body.fatex-dark-mode .fatex-power__stunts:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
+    border-left-color: var(--fx-dark-border-light) !important;
+}
+
 body.fatex-dark-mode .fatex-dice:not(:where(.fatex-themed, .fatex-themed *, .fatex-themes-chat, .fatex-themes-chat *)) {
     background: transparent !important; 
     color: #ffffff !important;
